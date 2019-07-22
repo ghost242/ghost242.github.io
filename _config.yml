@@ -5,7 +5,7 @@
 
 # If you are building a simple GitHub user page (https://username.github.io) then use these settings:
 url: "https://ghost242.github.io"
-baseurl: "/"
+baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
 #url: "http://username.github.io/projectname"
@@ -14,10 +14,10 @@ baseurl: "/"
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Personal knowledge store
+title: Knowledge container
 
 # Short description of your site
-description: My personal storage for knowledge in the world
+description: My personal storage for knowledge in my life
 
 # --- Navigation bar options --- #
 
@@ -25,7 +25,7 @@ description: My personal storage for knowledge in the world
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
+    - Python official site: "https://www.python.org"
     - Learn markdown: "http://www.markdowntutorial.com/"
     - GitHub Pages: "https://pages.github.com/"
 #  Author's home: "http://deanattali.com"
