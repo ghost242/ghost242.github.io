@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Maven에서 Local storage에 있는 jar를 의존성패키지로 사용하는 방법
+tags: ["java", "maven"]
 ---
 # 문제가 발생했다!!
 회사내에서 개발중인 java 프로젝트 작업을 하던 도중에 발생한 문제였다.

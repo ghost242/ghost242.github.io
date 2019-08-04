@@ -249,6 +249,9 @@ prose:
           help: "Check to publish post, uncheck to hide."
 
 plugins:
+  - jekyll-gist
+  - jekyll-coffeescript
+  - jekyll-assets
   - jekyll-paginate
   - jekyll-sitemap
 

@@ -2,6 +2,8 @@
 layout: post
 title: 파이썬 코딩도장
 subtitle: 결코 가볍지 않지만 파이썬을 정말 꼼꼼하고 자세하게 배울 수 있는 초급서
+comments: true
+categories: ["Reviews"]
 tag: ["Review", "Python", "Beginner"]
 ---
 
