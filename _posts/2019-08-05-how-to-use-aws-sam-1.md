@@ -37,9 +37,7 @@ AWS는 root권한을 갖는 마스터 계정(사용자의 AWS계정)이 모든 �
     * "iam:AttachRolePolicy",
     * "iam:PutRolePolicy"
 
-* 리소스 생성/수정/삭제
-    * 
-
+* 각 리소스 목록/생성/수정/삭제
 
 ## SAM CLI 설치
 
