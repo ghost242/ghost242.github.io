@@ -9,7 +9,7 @@ tag: ["Review", "Python", "Beginner"]
 
 ## 읽기 전에..
 
-![Python coding dojang title page](/img/20190707_182229.jpg)
+![Python coding dojang title page](/img/2019-07-19-book-review-python-codingdojiang/20190707_182229.jpg)
 ##### ▲ 깔끔한 표지(천장에 형광등 때문에 그림자가 생겼다)
 
 ### 도대체 어떤 책인가
@@ -24,7 +24,7 @@ tag: ["Review", "Python", "Beginner"]
 
 ## 읽는 중
 
-![Python study guidline](/img/20190720_171113.jpg)
+![Python study guidline](/img/2019-07-19-book-review-python-codingdojiang/20190720_171113.jpg)
 ##### ▲ 책 앞부분에 8주 완성 형식으로 공부 진도를 소개하고있다.
 
 ### 책은 어떻게 구성되어있는가
@@ -41,7 +41,7 @@ tag: ["Review", "Python", "Beginner"]
 
 ## 읽은 뒤
 
-![Teaching python](/img/teach_python.jpg)
+![Teaching python](/img/2019-07-19-book-review-python-codingdojiang/teach_python.jpg)
 
 ### 무엇을 얻었는가
 

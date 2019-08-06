@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Maven에서 Local storage에 있는 jar를 의존성패키지로 사용하는 방법
-tags: ["java", "maven"]
+tags: ["java", "maven", "depandencies"]
 ---
 # 문제가 발생했다!!
 회사내에서 개발중인 java 프로젝트 작업을 하던 도중에 발생한 문제였다.
@@ -21,7 +21,7 @@ tags: ["java", "maven"]
 * jdk 버전: 1.8.0_161 
 
 ## 설정 방법
-jar 패키징
+### jar 패키징
 
 기존 프로젝트를 maven package 명령으로 패키지 한 뒤에 테스트용 프로젝트에서 dependency로 추가하는 경우에 이 jar에 있는 dependency를 제대로 못가져오는 문제가 있다. 
 따라서 아래와 같이 pom.xml을 일부 수정해서 의존성 패키지들을 불러올 수 있도록 해줘야 한다.

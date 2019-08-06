@@ -1,9 +1,9 @@
 ---
 layout: post
-title: AWS SAM을 사용하는 방법 (1)
-subtitle: Application을 구성하는 방법
+title: AWS SAM로 서비스를 만들어 보자 (1)
+subtitle: 시작하는 방법
 comments: true
-categories: ["Tech"]
+categories: ["Technology"]
 tag: ["AWS", "SAM", "Beginner", "Serverless"]
 ---
 
@@ -18,6 +18,28 @@ SAM은 AWS의 모든 서비스를 아우르던 CloudFormationd에서 파생된�
 (Input) -> [API Gateway] - [Lambda] - [SQS] - [Lambda] - [S3]
 
 우선 어떤 HTTP(S) Path로 요청이 들어오면, 그 요청을 Trigger로 Lambda가 동작하고, SQS에 메시지를 넣고 프로세스가 종료된다. 그 다음에 Lambda가 SQS를 Trigger로 동작해서 전달된 메시지를 S3에 저장하고 프로세스가 종료된다.
+
+## IAM 설정
+
+AWS는 root권한을 갖는 마스터 계정(사용자의 AWS계정)이 모든 것을 통제하는 상황을 권장하지 않는다. 가급적이면 AWS 시스템 내에서 관리하는 서브권한을 이용하라고 추천해준다. 따라서 IAM 설정 화면으로 들어가보면 사용자가 제어할 수 있는 수많은 서비스에 대한 관리권한들을 볼 수 있다. 사실 너무 많아서 몽땅 다 보는건 말이 안되고, 그 중에서 몇가지 필수적인 권한만 보려고 한다. 
+
+* CloudFormation 구성
+    * "cloudformation:CreateChangeSet",
+    * "cloudformation:ExecuteChangeSet",
+    * "cloudformation:GetTemplateSummary"
+ 
+* IAM 권한 부여
+    * "iam:ListPolicies",
+    * "iam:DetachRolePolicy",
+    * "iam:DeleteRolePolicy",
+    * "iam:CreateRole",
+    * "iam:DeleteRole",
+    * "iam:AttachRolePolicy",
+    * "iam:PutRolePolicy"
+
+* 리소스 생성/수정/삭제
+    * 
+
 
 ## SAM CLI 설치
 
