@@ -4,12 +4,15 @@ title: AWS SAM로 서비스를 만들어 보자 (1)
 subtitle: 시작하는 방법
 comments: true
 categories: ["Technology"]
-tag: ["AWS", "SAM", "Beginner", "Serverless"]
+tag: ["AWS", "SAM", "Beginner", "Serverless", "Application"]
 ---
 
 ## 전제
 
-SAM은 AWS의 모든 서비스를 아우르던 CloudFormationd에서 파생된만큼, 내장된 기능을 몽땅 설명하는 것은 너무 범위가 많기 때문에 그렇게 했다간 얘기가 끝나지 않는다. 사실 그런건 AWS의 공식 문서를 보면 모든 설명이 너무 잘 나와있어서 굳이 그런걸 할 필요가 없기도 하다. 따라서 여기서는 적당히 기능들을 사용한 예제 어플리케이션 제작을 기준으로 진행하고 필요한 설명을 첨부하도록 한다.
+AWS의 SAM 문서를 살펴보면 다음과 같은 문장이 있다. 
+> AWS SAM templates are an extension of AWS CloudFormation templates. That is, any resource that you can declare in an AWS CloudFormation template you can also declare in an AWS SAM template.
+
+즉, SAM은 AWS의 CloudFormation의 확장 기능에 해당한다는 의미로, 내장된 기능을 몽땅 설명하는 것은 너무 범위가 많기도 하고, 또 얼마나 많은 리소스를 사용할 수 있는지에 대한 정의도 불확실하기 때문에(아직 문서가 완성되지 않은 것으로 보인다) 만약 SAM의 모든 것을 설명하려 했다간 이 블로그가 AWS의 문서처럼 변해버릴 것이다. 만약 그런 문서를 보고싶다면, 그냥 AWS의 공식 문서를 참고하는 것이 좋다. 따라서 여기서는 적당히 기능들을 사용한 예제 어플리케이션 제작을 기준으로 진행하고 필요한 설명을 첨부하도록 한다.
 
 ## 시나리오
 
@@ -23,12 +26,12 @@ SAM은 AWS의 모든 서비스를 아우르던 CloudFormationd에서 파생된�
 
 AWS는 root권한을 갖는 마스터 계정(사용자의 AWS계정)이 모든 것을 통제하는 상황을 권장하지 않는다. 가급적이면 AWS 시스템 내에서 관리하는 서브권한을 이용하라고 추천해준다. 따라서 IAM 설정 화면으로 들어가보면 사용자가 제어할 수 있는 수많은 서비스에 대한 관리권한들을 볼 수 있다. 사실 너무 많아서 몽땅 다 보는건 말이 안되고, 그 중에서 몇가지 필수적인 권한만 보려고 한다. 
 
-* CloudFormation 구성
+* CloudFormation 구성에 대한 권한 (CloudFormation에 스택을 구성하고, 변경하기 때문에 필요한 권한이다.) 
     * "cloudformation:CreateChangeSet",
     * "cloudformation:ExecuteChangeSet",
     * "cloudformation:GetTemplateSummary"
  
-* IAM 권한 부여
+* IAM 권한 (각 스택에 필요한 권한을 확인하고, 추가하고, 제거하기 위한 권한이다.)
     * "iam:ListPolicies",
     * "iam:DetachRolePolicy",
     * "iam:DeleteRolePolicy",
@@ -37,7 +40,7 @@ AWS는 root권한을 갖는 마스터 계정(사용자의 AWS계정)이 모든 �
     * "iam:AttachRolePolicy",
     * "iam:PutRolePolicy"
 
-* 각 리소스 목록/생성/수정/삭제
+* 각 리소스 목록/생성/수정/삭제 권한
 
 ## SAM CLI 설치
 
