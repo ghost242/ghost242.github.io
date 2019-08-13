@@ -44,7 +44,7 @@ Description: >
 
 ### Resource -- global section (Optional)
 
-여기서부터 본격적인 Resource 구성의 설정을 작성하는 영역이다. Globals로 시작하는 이 지점은 각 Resource들의 공통 설정을 작성하는 부분인데, 현재는 Lambda(Function) 외에는 각각 1개의 리소스만으로 정의되므로 Function을 정의한다.
+여기서부터 본격적인 Resource 구성의 설정을 작성하는 영역이다. Globals로 시작하는 이 지점은 각 Resource들의 공통 설정을 작성하는 부분인데, 현재는 Lambda(Function) 외에는 각각 1개의 리소스만으로 정의되므로 여기는 공통으로 사용될 설정이 필요한, Function에 대한 global properties를 정의한다.
 
 ```YAML
 Globals:
@@ -164,23 +164,23 @@ Resources:
 
 ```YAML
 Outputs:
-  HelloWorld:
-    Description: "Hello World Lambda API entrypoint"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
-  HelloWorldFunction:
-    Description: "Hello World Lambda Function ARN"
-    Value: !GetAtt HelloWorldFunction.Arn
-  DataSenderFunction:
+  MessageStorage:
+    Description: "GetMessageFunc Lambda API entrypoint"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/write/"
+  GetMessageFunc:
+    Description: "Get message Lambda Function ARN"
+    Value: !GetAtt GetMessageFunc.Arn
+  StoreMessageFunc:
     Description: "Data send & receive function ARN"
-    Value: !GetAtt DataSenderFunction.Arn
-  HelloWorldFunctionIamRole:
+    Value: !GetAtt StoreMessageFunc.Arn
+  GetMessageFuncIamRole:
     Description: "Implicit IAM Role created for Hello World function"
-    Value: !GetAtt HelloWorldFunctionRole.Arn
+    Value: !GetAtt GetMessageFuncRole.Arn
 ```
 
 ## 결론
 
-이렇게 Template 파일을 정의하고 나면 다음은 실제 코드를 작성해야 한다. 앞선 포스트에서 설명했듯이 sam init 명령어를 통해 만든 파일들을 적당히 수정하면서 만들어보는 방향으로 시도해보면 비교적 익히기 쉬울 것이다. 
+위에 조각조각 나뉘어진 YAML 코드들을 template.yaml 이라는 파일 하나에 묶어서 만들면 SAM에 대한 template.yaml 파일 구성이 끝난다. 이렇게 Template 파일을 정의하고 나면 다음은 실제 코드를 작성해야 한다. 앞선 포스트에서 설명했듯이 sam init 명령어를 통해 만든 파일들을 적당히 수정하면서 만들어보는 방향으로 시도해보면 비교적 익히기 쉬울 것이다. 
 
 
 ## 참고
