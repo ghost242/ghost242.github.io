@@ -138,3 +138,18 @@ var main = {
 // 2fc73a3a967e97599c9763d05e564189
 
 document.addEventListener('DOMContentLoaded', main.init);
+
+function move_page() {
+  let pg = $.find("li span input[type=text]")[0];
+  let currentPage = $(location).attr("href").split("/");
+  let newPage = "";
+
+  if(pg.value === "1") {
+    newPage = currentPage.slice(0, 2).join("/");
+  } else {
+    currentPage[3] = "page" + pg.value
+    newPage = currentPage.join("/");
+  } 
+
+  window.location.replace(newPage);
+}
