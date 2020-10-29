@@ -1,6 +1,7 @@
 <footer>
-  <div class="container beautiful-jekyll-footer">
+  <div class="container-md beautiful-jekyll-footer">
     <div class="row">
+<<<<<<< HEAD
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <ul class="list-inline text-center footer-links">
           {%- for link in site.social-network-links -%}
@@ -24,14 +25,34 @@
             </li>
           {%- endfor -%}
         </ul>
+=======
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      {% include social-networks-links.html %}
+      {% if page.footer-extra %}
+        <div class="footer-custom-content">
+          {% for file in page.footer-extra %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+>>>>>>> upstream/master
       <p class="copyright text-muted">
-      {{ site.author.name }}
-      &nbsp;&bull;&nbsp;
+      {% if site.author %}
+        {{ site.author }}
+        &nbsp;&bull;&nbsp;
+      {% endif %}
       {{ site.time | date: '%Y' }}
 
       {% if site.url-pretty %}
+<<<<<<< HEAD
       &nbsp;&bull;&nbsp;
       <a href="{{ '' | absolute_url }}">{{ site.url-pretty }}</a>
+=======
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="{% if site.url-canonical %}{{ site.url-canonical }}{% else %}{{ '' | absolute_url }}{% endif %}">{{ site.url-pretty }}</a>
+        </span>
+>>>>>>> upstream/master
       {% endif %}
 
       {% if site.matomo %}
@@ -41,11 +62,10 @@
         {% endif %}
       {% endif%}
       </p>
-          <!-- Please don't remove this, keep my open source work credited :) -->
-    <p class="theme-by text-muted">
-      Theme by
-      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
-    </p>
+      {% unless site.remove-ads %}<p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>{% endunless %}
       </div>
     </div>
   </div>

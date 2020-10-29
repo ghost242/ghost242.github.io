@@ -4,7 +4,7 @@ title: My knowledge portal
 subtitle: Let's spread this website to everyone!
 use-site-title: true
 ---
-<div class="posts-list">
+{% comment %} <div class="posts-list">
   {% for post in paginator.posts %}
   <article class="post-preview">
     <a href="{{ post.url | relative_url }}">
@@ -85,4 +85,4 @@ use-site-title: true
   </li>
   {% endif %}
 </ul>
-{% endif %}
+{% endif %} {% endcomment %}

@@ -7,6 +7,13 @@ _site
 .DS_Store
 Thumbs.db
 ehthumbs.db
+<<<<<<< HEAD
 .vscode/
 
 Gemfile.lock
+=======
+
+Gemfile.lock
+
+beautiful-jekyll-theme-*.gem
+>>>>>>> upstream/master
