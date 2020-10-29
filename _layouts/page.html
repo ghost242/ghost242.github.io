@@ -6,11 +6,6 @@ layout: base
 
 <div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
   <div class="row">
-<<<<<<< HEAD
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      {{ content }}
-	  {% include comments.html %}
-=======
     <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
       {% if page.before-content %}
         <div class="before-content">
@@ -31,7 +26,6 @@ layout: base
       {% endif %}
 
       {% include comments.html %}
->>>>>>> upstream/master
     </div>
   </div>
 </div>

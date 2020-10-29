@@ -39,11 +39,7 @@
   <meta name="keywords" content="{{ site.keywords }}">
   {% endif %}
 
-<<<<<<< HEAD
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ site.title-separator }} {{ site.description }}" href="{{ '/feed.xml' | absolute_url }}" />
-=======
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
->>>>>>> upstream/master
 
   {% include gtag.html %}
   {% include gtm_head.html %}
@@ -57,11 +53,7 @@
 
   {% if layout.common-css %}
     {% for css in layout.common-css %}
-<<<<<<< HEAD
-      <link rel="stylesheet" href="{{ css | relative_url }}" />
-=======
       <link rel="stylesheet" href="{{ css | relative_url }}">
->>>>>>> upstream/master
     {% endfor %}
   {% endif %}
 
@@ -79,17 +71,7 @@
   
   {% if page.css %}
     {% for css in page.css %}
-<<<<<<< HEAD
-      <link rel="stylesheet" href="{{ css | relative_url }}" />
-    {% endfor %}
-  {% endif %}
-
-  {% if page.googlefonts %}
-    {% for font in page.googlefonts %}
-      <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
-=======
       <link rel="stylesheet" href="{{ css | relative_url }}">
->>>>>>> upstream/master
     {% endfor %}
   {% endif %}
 
@@ -126,19 +108,6 @@
   {% endif %}
 
   {% if page.id %}
-<<<<<<< HEAD
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <link rel="canonical" href="{{ page.url | absolute_url }}" />
-  {% else %}
-  <meta property="og:url" content="{{ page.url | absolute_url | strip_index }}" />
-  <link rel="canonical" href="{{ page.url | absolute_url | strip_index }}" />
-  {% endif %}
-
-  {% if page.share-img %}
-  <meta property="og:image" content="{{ page.share-img }}" />
-  {% elsif site.avatar %}
-  <meta property="og:image" content="{{ site.avatar | absolute_url }}" />
-=======
   <meta property="og:type" content="article">
   <meta property="og:article:author" content="{{ site.author }}">
   <meta property="og:article:published_time" content="{{ page.date | date_to_xmlschema }}">
@@ -148,7 +117,6 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ page.url | absolute_url | strip_index }}">
   <link rel="canonical" href="{{ page.url | absolute_url | strip_index }}">
->>>>>>> upstream/master
   {% endif %}
 
   {% if img != "" and img != site.avatar %}
@@ -162,24 +130,13 @@
   <meta property="twitter:title" content="{{ title }}">
   <meta property="twitter:description" content="{{ description }}">
 
-<<<<<<< HEAD
-  {% if page.share-img %}
-  <meta name="twitter:image" content="{{ page.share-img }}" />
-  {% elsif site.avatar %}
-  <meta name="twitter:image" content="{{ site.avatar | absolute_url }}" />
-=======
   {% if img != "" %}
   <meta name="twitter:image" content="{{ img | absolute_url }}">
->>>>>>> upstream/master
   {% endif %}
 
   {% include matomo.html %}
 
   {% if page.comments and site.staticman.repository and site.staticman.branch %}
-<<<<<<< HEAD
-  <!-- Staticman -->
-  <link rel="stylesheet" href="{{ "/css/staticman.css" | relative_url }}" />
-=======
   <link rel="stylesheet" href="{{ "/assets/css/staticman.css" | relative_url }}">
   {% endif %}
 
@@ -187,7 +144,6 @@
     {% for file in page.head-extra %}
       {% include {{ file }} %}
     {% endfor %}
->>>>>>> upstream/master
   {% endif %}
 
 </head>

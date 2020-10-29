@@ -2,21 +2,6 @@
 
 # Beautiful Jekyll
 
-<<<<<<< HEAD
-[![Gem Version](https://badge.fury.io/rb/beautiful-jekyll-theme.svg)](https://badge.fury.io/rb/beautiful-jekyll-theme)
-
-> *Copyright 2019 [Dean Attali](https://deanattali.com)*
-
-**Beautiful Jekyll** is a ready-to-use template to help you create an awesome website quickly. Perfect for personal sites, blogs, or simple project websites.  [Check out a demo](https://deanattali.com/beautiful-jekyll) of what you'll get after just two minutes.  You can also look at [my personal website](https://deanattali.com) to see it in use, or see examples of websites other people created using this theme [here](#showcased-users-success-stories).
-
-**If you enjoy this theme, please consider [supporting me](https://github.com/sponsors/daattali) for developing and maintaining this template.**
-
-<p align="center">
-  <a href="https://github.com/sponsors/daattali">
-    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" />
-  </a>
-</p>
-=======
 [![xscode](https://img.shields.io/badge/Available%20on-xs%3Acode-blue?style=?style=plastic&logo=appveyor&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////////VXz1bAAAAAJ0Uk5T/wDltzBKAAAAlUlEQVR42uzXSwqAMAwE0Mn9L+3Ggtgkk35QwcnSJo9S+yGwM9DCooCbgn4YrJ4CIPUcQF7/XSBbx2TEz4sAZ2q1RAECBAiYBlCtvwN+KiYAlG7UDGj59MViT9hOwEqAhYCtAsUZvL6I6W8c2wcbd+LIWSCHSTeSAAECngN4xxIDSK9f4B9t377Wd7H5Nt7/Xz8eAgwAvesLRjYYPuUAAAAASUVORK5CYII=)](https://xscode.com/daattali/beautiful-jekyll)
 [![Gem Version](https://badge.fury.io/rb/beautiful-jekyll-theme.svg)](https://badge.fury.io/rb/beautiful-jekyll-theme)
 
@@ -25,7 +10,6 @@
 **Beautiful Jekyll** is a ready-to-use template to help you create a beautiful website quickly. Perfect for personal sites, blogs, or simple project websites.  [Check out a demo](https://beautifuljekyll.com) of what you'll get after just two minutes.  You can also look at [my personal website](https://deanattali.com) or [my consulting website](https://attalitech.com) to see it in use, or see [examples of websites](http://beautifuljekyll.com/examples) other people created using this theme.
 
 **If you enjoy Beautiful Jekyll, please consider [supporting me](https://github.com/sponsors/daattali) for over 5 years of development (and to unlock rewards!) ❤**
->>>>>>> upstream/master
 
 ## Table of contents
 
@@ -109,11 +93,7 @@ To add pages to your site, you can either write a markdown file (`.md`) or you c
 
 To see an example of a markdown file, click on any file that ends in `.md`, for example [`aboutme.md`](./aboutme.md). On that page you can see some nicely formatted text (there's a word in bold, a link, a few bullet points), and if you click on the pencil icon to edit the file, you'll see the markdown code that generated the pretty text. Very easy!
 
-<<<<<<< HEAD
-If you want to enable comments on your site, Beautiful Jekyll supports either the [Disqus](https://disqus.com/) comments plugin, [Facebook](https://developers.facebook.com/docs/plugins/comments) comments, or [Staticman](https://staticman.net). If any of these are set in the configuration file, then all blog posts will have comments turned on by default. To turn off comments on a particular blog post, add `comments: false` to the YAML front matter. If you want to add comments on the bottom of a non-blog page, add `comments: true` to the YAML front matter.
-=======
 In contrast, look at [`tags.html`](./tags.html). That's how your write HTML - not as pretty. So stick with markdown if you don't know HTML.
->>>>>>> upstream/master
 
 Any markdown or HTML file that you create will be available on your website under `https://<yourusername>.github.io/<pagename>`. For example, if you create a file `about.md` (or `about.html`) then it'll exist at `https://<yourusername>.github.io/about`.
 
@@ -123,26 +103,11 @@ Files you create inside the [`_posts`](./_posts) directory will be treated as bl
 
 **One last important thing**: In order to have your new pages use this template and not just be plain HTML pages, **you must add [YAML front matter](https://jekyllrb.com/docs/front-matter/) to the top of each page**:
 
-<<<<<<< HEAD
-#### Utterances comments 
-
-To use [Utterances comments](https://utteranc.es/), follow these steps: (1) Enable Issues in your GitHub repository, (2) Install the Utterances app in your repository (go to https://github.com/apps/utterances), (3) Fill in the `repository` parameter in the utterances section of the `_config.yml` file.
-
-#### Staticman comments
-
-To use Staticman, you first need to invite `staticmanlab` as a collaborator to your repository (by going to your repository **Settings** page, navigate to the **Collaborators** tab, and add the username `staticmanlab`), and then accept the invitation by going to `https://staticman3.herokuapp.com/v3/connect/github/<username>/<repo-name>`. Lastly, fill in the `staticman` parameters in the Staticman section of `_config.yml`. You may also choose a different Staticman instance other than `staticmanlab`.
-
-Optional: You may want to configure a webhook to prevent old inactive branches (representing approved comments) from stacking up.  You can refer to [Staticman's documentation](https://staticman.net/docs/webhooks) for details.  Make sure to input the **Payload URL** according to your chosen `endpoint`.  For example, the default `endpoint` is `https://staticman3.herokuapp.com/v3/entry/github/`, so the corresponding **Payload URL** should be `https://staticman3.herokuapp.com/v1/webhook`.
-
-
-### Adding Google Analytics to track page views
-=======
 
 ```
 ---
 ---
 ```
->>>>>>> upstream/master
 
 This is where you'll be able to give each page some extra parameters (such as a title, a subtitle, an image, etc - [below is a list of all parameters](#supported-parameters)). Add any parameters you want between these two dashed lines, for example:
 
@@ -171,112 +136,15 @@ Parameter   | Description
 ----------- | -----------
 title       | Page or blog post title
 subtitle    | Short description of page or blog post that goes under the title
-<<<<<<< HEAD
-tags        | List of tags to categorize the post. Separate the tags with commas and place them inside square brackets. Example: `[personal, self help, finance]`
-bigimg      | Include a large full-width image at the top of the page.  You can either give the path to a single image, or provide a list of images to cycle through (see [my personal website](https://deanattali.com/) as an example).
-comments    | If you want do add comments to a specific page, use `comments: true`. Comments are automatically enabled on blog posts; to turn comments off for a specific post, use `comments: false`. Comments only work if you enable at least one provider(Facebook, disqus, staticman) in `_config.yml` file.
-show-avatar | If you have an avatar configured in the `_config.yml` but you want to turn it off on a specific page, use `show-avatar: false`. If you want to turn it off by default, locate the line `show-avatar: true` in the file `_config.yml` and change the `true` to `false`; then you can selectively turn it on in specific pages using `show-avatar: true`.
-image       | If you want to add a personalized image to your blog post that will show up next to the post's excerpt and on the post itself, use `image: /path/to/img`.
-share-img   | If you want to specify an image to use when sharing the page on Facebook or Twitter, then provide the image's full URL here.
-social-share | If you don't want to show buttons to share a blog post on social media, use `social-share: false` (this feature is turned on by default).
-use-site-title | If you want to use the site title rather than page title as HTML document title (ie. browser tab title), use `use-site-title: true`. When set, the document title will take the format `Site Title - Site Description` (eg. `My website - A virtual proof that name is awesome!`). By default, it will use `Page Title` if it exists, or `Site Title` otherwise.
-layout      | What type of page this is (default is `post` for blog posts and `page` for other pages. You can use `minimal` if you don't want a header and footer)
-js          | List of local JavaScript files to include in the page (eg. `/js/mypage.js`)
-ext-js      | List of external JavaScript files to include in the page (eg. `//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js`). External JavaScript files that support [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) can be specified using the `href` and `sri` parameters eg.<br/>`href: "//code.jquery.com/jquery-3.1.1.min.js"`<br/>`sri: "sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="`
-css         | List of local CSS files to include in the page
-ext-css      | List of external CSS files to include in the page. External CSS files using SRI (see `ext-js` parameter) are also supported.
-googlefonts | List of Google fonts to include in the page (eg. `["Monoton", "Lobster"]`)
-gh-repo   | If you want to show GitHub buttons at the top of a post, this sets the GitHub repo name (eg. `daattali/beautiful-jekyll`). You must also use the `gh-badge` parameter to specify what buttons to show.
-gh-badge  | Select which GitHub buttons to display, available options are: [star, watch, fork, follow]. You must also use the `gh-repo` parameter to specify the GitHub repo.
-
-### Advanced features (including how to use a custom URL address for your site)
-
-I wrote [a blog post](https://deanattali.com/2015/03/12/beautiful-jekyll-how-to-build-a-site-in-minutes/) describing some more advanced features that I used in my website that are applicable to any Jekyll site.  It describes how I used a custom URL for my site (deanattali.com instead of daattali.github.io), how to add a Google-powered search into your site, and provides a few more details about having an RSS feed.
-=======
 tags        | List of tags to categorize the post. Separate the tags with commas and place them inside square brackets. Example: `[personal, analysis, finance]`
 cover-img   | Include a large full-width image at the top of the page. You can either provide the path to a single image (eg. `"/path/to/img"`) , or a list of images to cycle through (eg. `["/path/img1", "/path/img2"]`). If you want to add a caption to an image, then the image should be provided as `{"/path/to/img" : "Caption of image"}`.
 thumbnail-img | For blog posts, if you want to add a thumbnail that will show up in the feed, use `thumbnail-img: /path/to/image`. If no thumbnail is provided, then `cover-img` will be used as the thumbnail. You can use `thumbnail-img: ""` to disable a thumbnail.
 comments    | If you want do add comments to a specific page, use `comments: true`. Comments only work if you enable one of the comments providers (Facebook, disqus, staticman, utterances) in `_config.yml` file. Comments are automatically enabled on blog posts but not on other pages; to turn comments off for a specific post, use `comments: false`.
->>>>>>> upstream/master
 
 ## Parameters for SEO and social media sharing
 
 These parameters let you control what information shows up when a page is shown in a search engine (such as Google) or gets shared on social media (such as Twitter/Facebook).
 
-<<<<<<< HEAD
-If you want to use this theme to host a website that will be available at `https://YOURUSERNAME.github.io`, then you do not need to read this section. That is called a User Page, you can only have one User Page in your GitHub account, and it is what you get by default when forking this project.
-
-If you want to use this theme to create a website for a particular repository, it will be available at `https://YOURUSERNAME.github.io/PROJECTNAME`, and that is called a [Project Page](https://help.github.com/articles/user-organization-and-project-pages/). You can have a Project Page for any repository you have on GitHub.
-
-**When using this theme for a Project Page, by default your website will be served from the `gh-pages` branch**, so you must take the following steps: 
-
-1. [Delete the existing `gh-pages` branch](https://help.github.com/en/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)
-
-2. [Create a new branch named `gh-pages` from the `master` branch](https://help.github.com/en/articles/creating-and-deleting-branches-within-your-repository#creating-a-branch)
-
-Alternatively, instead of the above two steps, you can opt to use the `master` branch instead of `gh-pages` branch as your website's source by choosing that option in the main Settings page. 
-
-## Showcased users (success stories!)
-
-To my huge surprise, Beautiful Jekyll has been used in over 500 websites in its first 6 months alone! Here is a hand-picked selection of some websites that use Beautiful Jekyll.
-
-Want your website featured here? [Contact me](https://deanattali.com/aboutme#contact) to let me know about your website.
-
-### Project/company websites
-
-| Website | Description |
-| :------ |:----------- |
-| [repidemicsconsortium.org/](https://www.repidemicsconsortium.org/) | R Epidemics Consortium |
-| [vaccineimpact.org](https://www.vaccineimpact.org/) | Vaccine Impact Modelling Consortium |
-| [derekogle.com/fishR](http://derekogle.com/fishR/) | Using R for Fisheries Analyses |
-| [bigdata.juju.solutions](http://bigdata.juju.solutions) | Creating Big Data solutions Juju Solutions |
-| [joecks.github.io/clipboard-actions](http://joecks.github.io/clipboard-actions/) | Clipboard Actions - an Android app |
-| [deanattali.com/shinyjs](http://deanattali.com/shinyjs/) | shinyjs - an R package |
-| [blabel.github.io](http://blabel.github.io) | Library for canonicalising blank node labels in RDF graphs |
-| [reactionic.github.io](http://reactionic.github.io) | Create iOS and Android apps with React and Ionic |
-| [ja2-stracciatella.github.io](http://ja2-stracciatella.github.io) | Jagged Alliance 2 Stracciatella |
-| [ddocent.com](http://ddocent.com/) | RADSeq Bioinformatics and Beyond |
-| [guitarlessons.org](https://www.guitarlessons.org/) | Free online guitar lessons for all |
-| [terremotocentroitalia.info](https://www.terremotocentroitalia.info/) | Information about the 2016 Italy earthquake |
-
-
-### Personal websites
-
-| Website | Who | What |
-| :------ |:--- | :--- |
-| [deanattali.com](https://deanattali.com) | Dean Attali | Creator of Beautiful Jekyll |
-| [ouzor.github.io](http://ouzor.github.io) | Juuso Parkkinen | Data scientist |
-| [derekogle.com](http://derekogle.com/) | Derek Ogle | Professor of Mathematical Sciences and Natural Resources |
-| [melyanna.github.io](http://melyanna.github.io/) | Melyanna | Shows off her nice art |
-| [chauff.github.io](http://chauff.github.io/) | Claudia Hauff | Professor at Delft University of Technology |
-| [kootenpv.github.io](http://kootenpv.github.io/) | Pascal van Kooten | Data analytics |
-| [sjackman.ca](http://sjackman.ca) | Shaun Jackman | PhD candidate in bioinformatics |
-| [anudit.in](http://www.anudit.in/) | Anudit Verma | Engineering student |
-| [sharepointoscar.github.io](http://sharepointoscar.github.io) | Oscar Medina | Independent Hacker |
-| [ocram85.com](https://ocram85.com) | Marco Blessing | A personal blog about PowerShell and automation |
-| [khanna.cc](https://khanna.cc/) | Harry Khanna | Law and software |
-
-## Advanced: Local development using Docker
-
-Beautiful Jekyll is meant to be so simple to use that you can do it all within the browser. However, if you'd like to develop locally on your own machine, that's possible too if you're comfortable with command line. Follow these simple steps set that up with Docker:
-
-1. Make sure you have [Docker](https://www.docker.com/) installed.
-
-2. Clone your repository locally.
-
-    ```bash
-    git clone https://github.com/<your_username>/<your_username>.github.io.git
-    ```
-
-3. Run the following shell commands to build the docker image and start the container for the first time:
-
-    ```bash
-    cd <repository_folder>
-    docker build -t beautiful-jekyll "$PWD"
-    docker run -d -p 4000:4000 --name beautiful-jekyll -v "$PWD":/srv/jekyll beautiful-jekyll
-    ```
-
-=======
 Parameter   | Description
 ----------- | -----------
 share-title | A title for the page. If not provided, then `title` will be used, and if that's missing then the site title (from `_config.yml`) is used.
@@ -284,7 +152,6 @@ share-description | A brief description of the page. If not provided, then `subt
 share-img   | The image to show. If not provided, then `cover-img` or `thumbnail-img` will be used if one of them is provided.
 
 ## Less commonly used parameters
->>>>>>> upstream/master
 
 These are parameters that you may not use often, but can come in handy sometimes.
 
@@ -344,44 +211,8 @@ Thank you to [all past contributors](https://github.com/daattali/beautiful-jekyl
 
 You can also contribute by becoming an [official sponsor](https://github.com/sponsors/daattali/sponsorships?tier_id=39856) to help keep Beautiful Jekyll well-maintained.
 
-<<<<<<< HEAD
-#### How do I use MathJax equations in my posts?
-
-MathJax can be easily integrated into your website with a one-line addition. You can see [this discussion](https://github.com/daattali/beautiful-jekyll/issues/195) for more information.
-
-#### My project page appear to be broken after a recent update!
-
-In June 2019, some URL related settings have been adjusted to be more in-line with how Jekyll uses them officially. Project Page absolute links might appear to be broken if you haven't propagated all necessary changes to your local templates, or if you have created additional templates making use of old settings. If a link contains a duplicated project path component, this is most likely the cause. In summary:
-
-| &nbsp; | Old behavior | New behavior |
-| --- | --- | --- |
-| `url` setting | `https://user.github.io/projectname` | (unset, GitHub auto detects) |
-| `baseurl` setting | `/projectname` | (unset, GitHub auto detects) |
-| Absolute link construction | `{{ site.url }}/your/path` | `{{ '/your/path' \| absolute_url }}` |
-| Relative link construction | `{{ site.baseurl }}/your/path` | `{{ '/your/path' \| relative_url }}` |
-
-## Credits
-=======
 # Credits
->>>>>>> upstream/master
 
 This template was not made *entirely* from scratch. I'd like to give special thanks to [Jekyll Now](https://github.com/barryclark/jekyll-now) and [Bootstrap Clean Blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog), from whom I've taken several ideas initially.
 
 I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/), [Jekyll Themes](http://jekyllthemes.org/), and another [Jekyll Themes](http://jekyllrc.github.io/jekyllthemes/) for featuring Beautiful Jekyll in their Jekyll theme directories.
-<<<<<<< HEAD
-
-## Contributions
-
-If you find anything wrong or would like to contribute in any way, feel free to create a pull request/open an issue/send me a message.  Any comments are welcome!
-
-Thank you to [all contributors](https://github.com/daattali/beautiful-jekyll/graphs/contributors). Special thanks to  [@OCram85](https://github.com/OCram85) and [@abelcheung](https://github.com/abelcheung) for contributing multiple times as well as helping with discussions.
-
-If you do fork or clone this project to use as a template for your site, I would appreciate if you keep the link in the footer to this project.  I've noticed that several people who forked this repo removed the attribution and I would prefer to get the recognition if you do use this :)
-
-## Known limitations
-
-- If you have a project page and you want a custom 404 page, you must have a custom domain.  See https://help.github.com/articles/custom-404-pages/.  This means that if you have a regular User Page you can use the 404 page from this theme, but if it's a website for a specific repository, the 404 page will not be used.
-
-- If there are many navigation bar links and avatar, some of the links may get partially hidden behind the avatar. 
-=======
->>>>>>> upstream/master

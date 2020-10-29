@@ -9,15 +9,9 @@
     <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
     {% if js contains 'jquery' %}
       <script>
-<<<<<<< HEAD
-      	if (typeof jQuery == 'undefined') {
-          document.write('<script src="{{ js | relative_url }}"></scr' + 'ipt>');
-      	}
-=======
         if (typeof jQuery == 'undefined') {
           document.write('<script src="{{ js | relative_url }}"></scr' + 'ipt>');
         }
->>>>>>> upstream/master
       </script>
     {% else %}
       <script src="{{ js | relative_url }}"></script>
@@ -25,15 +19,12 @@
   {% endfor %}
 {% endif %}
 
-<<<<<<< HEAD
-=======
 {% if site.site-js %}
   {% for js in site.site-js %}
     <script src="{{ js | relative_url }}"></script>
   {% endfor %}
 {% endif %}
 
->>>>>>> upstream/master
 {% if page.ext-js %}
   {% for js in page.ext-js %}
     {% include ext-js.html js=js %}

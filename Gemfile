@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-<<<<<<< HEAD
 gem "github-pages", '197', group: :jekyll_plugins
 
 # enable tzinfo-data for local build
@@ -12,9 +11,8 @@ group :jekyll_plugins do
     gem "jekyll-paginate"
     gem "jekyll-sitemap"
   end
-=======
+
 source "https://rubygems.org"
 
 gemspec
 
->>>>>>> upstream/master

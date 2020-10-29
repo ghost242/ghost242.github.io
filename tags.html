@@ -27,11 +27,7 @@ title: 'Tag Index'
             <div class="tag-entry">
                 <a href="{{ post.url | relative_url }}">{{- post.title -}}</a>
                 <div class="entry-date">
-<<<<<<< HEAD
-                    <time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: site.date_format -}}</time>
-=======
                     <time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: date_format -}}</time>
->>>>>>> upstream/master
                 </div>
             </div>
         {%- endfor -%}
