@@ -7,10 +7,11 @@ categories: ["Reviews"]
 tag: ["Review", "Python", "Beginner"]
 ---
 
-## 읽기 전에..
+## 읽기 전에
 
 ![Python coding dojang title page](/img/2019-07-19-book-review-python-codingdojiang/20190707_182229.jpg)
-##### ▲ 깔끔한 표지(천장에 형광등 때문에 그림자가 생겼다)
+
+  **▲ 깔끔한 표지(천장에 형광등 때문에 그림자가 생겼다)**
 
 ### 도대체 어떤 책인가
 
