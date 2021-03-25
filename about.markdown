@@ -4,15 +4,34 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# About me...
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+## Overview
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Software enginer, Working at almost 6 ys. Interested in computer science/engineering -- many programming languages, Computer network, IaC, distributed computer system, virtualization, system ochestration, etc...
 
+## Ability
 
-[jekyll-organization]: https://github.com/jekyll
+### Language
+
+* Python
+
+* C++
+
+* Javascript
+
+### Infrastructure
+
+* AWS
+
+## Experience
+
+* Madup Inc. (June 2019 - present)
+
+* DRM Inside Inc. (May 2016 - June 2019)
+
+## Archivement
+
+* Center for Manycore Programming at Seoul National University (Jan 2017)
+
+* Undergraduate Student Researcher in UC Irvine (Jul 2015 - Aug 2015)
