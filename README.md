@@ -1,0 +1,1 @@
+Create new plain jekyll blog!
