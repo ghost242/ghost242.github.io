@@ -4,7 +4,7 @@ title: 유닛테스트 코드 작성 - 1
 subtitle: pytest를 활용하는 방법
 comments: true
 categories: ["Programming"]
-tag: ["Test", "Python", "pytest"]
+tag: ["Test", "Python", "FastAPI, "pytest"]
 ---
 
 ## 개요
