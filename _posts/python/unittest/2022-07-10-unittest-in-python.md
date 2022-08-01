@@ -189,5 +189,5 @@ def test_app_insert(client, sample_value):
 
 ## 참고 자료
 
-* [Pytest 공식 문서 -- fixture]()
+* [Pytest 공식 문서 -- fixture](https://docs.pytest.org/en/6.2.x/fixture.html)
 * [FastAPI 공식 문서 -- Test](https://fastapi.tiangolo.com/tutorial/testing/)

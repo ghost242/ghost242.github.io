@@ -4,33 +4,41 @@ title: About
 permalink: /about/
 ---
 
-# About me...
+## About me
 
-## Overview
+### Overview
 
-Software enginer, Working at almost 6 ys. Interested in computer science/engineering -- many programming languages, Computer network, IaC, distributed computer system, virtualization, system ochestration, etc...
+Software enginer, Working at almost 6 ys. Majored and interested in computer science/engineering -- many programming languages, Computer network, IaC, distributed computer system, virtualization, system ochestration, etc...
 
-## Ability
+### Skills & Abilities
 
-### Language
+#### Language & Framework
 
 * Python
+  * Flask
+  * FastAPI
 
-* C++
+* C/C++
+
+* Java
 
 * Javascript
 
-### Infrastructure
+#### Infrastructure
 
 * AWS
+  * Lambda
+  * EC2
+  * RDS
+  * IAM
 
-## Experience
+### Experience
 
 * Madup Inc. (June 2019 - present)
 
 * DRM Inside Inc. (May 2016 - June 2019)
 
-## Archivement
+### Archivement
 
 * Center for Manycore Programming at Seoul National University (Jan 2017)
 

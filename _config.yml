@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: The hole
+title: AAAhram Computer Lab.
 email: ohzakka@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is blog for posting about knowledge, tip, or etc..
@@ -31,8 +31,11 @@ github_username: ghost242
 
 # Build settings
 theme: minima
+# theme: minimal-mistakes-jekyll
+
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.
