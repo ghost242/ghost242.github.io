@@ -31,11 +31,14 @@ github_username: ghost242
 
 # Build settings
 theme: minima
-# theme: minimal-mistakes-jekyll
+  # theme: minimal-mistakes-jekyll
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sass-converter
+  - jekyll-watch
+  - jekyll-compose
 
 # Exclude from processing.
 # The following items will not be processed, by default.
