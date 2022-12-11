@@ -17,11 +17,12 @@ gem "minima", "~> 2.5"
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.15"
-  gem "jekyll-seo-tag", "~> 2.8.0"
-  gem "jekyll-sass-converter", "~> 2.1"
-  gem "jekyll-watch", "~> 2.2"
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sass-converter"
+  gem "jekyll-watch"
   gem "jekyll-compose"
+  gem "jekyll-remote-theme"
 end
 
 

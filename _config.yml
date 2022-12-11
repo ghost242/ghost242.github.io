@@ -30,8 +30,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: ghost242
 
 # Build settings
-theme: minima
-  # theme: minimal-mistakes-jekyll
+# theme: minima
+# theme: minimal-mistakes-jekyll
+remote_theme: jekyll/minima
 
 plugins:
   - jekyll-feed
@@ -39,6 +40,7 @@ plugins:
   - jekyll-sass-converter
   - jekyll-watch
   - jekyll-compose
+  - jekyll-remote-theme
 
 # Tracker
 google_analytics: G-J9060KJ1VV
