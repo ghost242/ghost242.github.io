@@ -57,6 +57,7 @@ exclude:
   - .sass-cache/
   - .jekyll-cache/
   - .vscode/
+  - .jekyll-metadata
   - gemfiles/
   - Gemfile
   - Gemfile.lock

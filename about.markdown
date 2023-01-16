@@ -8,29 +8,22 @@ permalink: /about/
 
 ### Overview
 
-Software enginer, Working at almost 6 ys. Majored and interested in computer science/engineering -- many programming languages, Computer network, IaC, distributed computer system, virtualization, system ochestration, etc...
+Worked as Backend engineer over 6+ years. Recently, researched the structure of Workflow engines, developed server-client patterns and serverless applications on AWS. Built the DevOps pipeline with TravisCI and IaC – AWS Cloudformation. And the other things, researched many programming techniques, unit test and behavior test for python3. In the past, worked in various positions, developed mobile and windows applications, designed and developed systems by MSA with GraphQL for message protocol.
 
 ### Skills & Abilities
 
-#### Language & Framework
+#### TECHNICAL SKILLS
 
-* Python
-  * Flask
-  * FastAPI
+* Proficiency in Web Framework such as FastAPI
+* Experience with test tools such as Pytest and useful libraries; pytest-bdd, factoryboy, moto
+* Experience with DBMS such as MySQL and PostgreSQL
+* Strong knowledge of cloud computing platform such as AWS
+* Work as DevOps engineer for serverless application with AWS SAM
 
-* C/C++
+#### NON-TECHNICAL SKILLS
 
-* Java
-
-* Javascript
-
-#### Infrastructure
-
-* AWS
-  * Lambda
-  * EC2
-  * RDS
-  * IAM
+* Experience working in scrum sprints
+* Proficiency in project management tools such as JIRA
 
 ### Experience
 
