@@ -3,7 +3,7 @@ layout: post
 title: GraphQL에 대해서
 subtitle: GraphQL 시스템에 대해서
 comments: true
-categories: ["Programming"]
+categories: ["Programming", "Protocol"]
 tag: ["GraphQL", "Python3", "FastAPI"]
 ---
 
@@ -125,7 +125,7 @@ users: list[User] = []
 
 `strawberry` 라이브러리에서 알아두어야 할 것은 GraphQL에서는 타입 시스템에서 `Query`, `Mutation`도 객체 모델과 마찬가지로 `type`으로 표현되기 때문에 `strawberry.type` 데코레이터를 사용하는데, 이외에 input, enum 타입을 표현할 때는 `strawberry.input`, `strawberry.enum` 으로 쓸 수 있다는 것이다.
 
-로컬에서 서버를 구동시킨 뒤 router path로 등록한 경로로 웹브라우저를 통해 접근하면 Playground(여기서는 http://127.0.0.1:5000/graphql)에 접속이 가능한데, 아래와 같은 화면에서 객체화된 스키마를 직접 테스트해볼 수 있다.
+로컬에서 서버를 구동시킨 뒤 router path로 등록한 경로로 웹브라우저를 통해 접근하면 Playground(여기서는 <http://127.0.0.1:5000/graphql)에> 접속이 가능한데, 아래와 같은 화면에서 객체화된 스키마를 직접 테스트해볼 수 있다.
 
 ![GraphQL Playground](/img/2022-12-10-about-graphql-1/Screenshot%202022-12-10%20at%203.02.26.png)
 

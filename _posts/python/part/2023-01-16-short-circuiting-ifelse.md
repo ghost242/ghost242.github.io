@@ -3,7 +3,7 @@ layout: post
 title: Short circuiting을 이용해 if-else 구문을 축약하기
 subtitle: 삼항연산자를 쓰기싫을때
 comments: true
-categories: ["Programming"]
+categories: ["Programming", "Python3", "Language"]
 tag: ["Python", "Short circuiting", "trick"]
 ---
 

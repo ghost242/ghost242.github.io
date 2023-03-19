@@ -3,7 +3,7 @@ layout: post
 title: pytest로 시스템 테스트를 하는 방법 - 2
 subtitle: SQLAlchemy를 사용하는 시스템에서의 테스트
 comments: true
-categories: ["Programming"]
+categories: ["Programming", "Python", "Testing"]
 tag: ["Test", "Python", "pytest", "SQLAlchemy", "factoryboy"]
 ---
 
@@ -18,7 +18,7 @@ tag: ["Test", "Python", "pytest", "SQLAlchemy", "factoryboy"]
 * poetry를 이용하는 경우
 
     ``` python
-    $ poetry add pytest-factoryboy --dev
+    poetry add pytest-factoryboy --dev
     ```
 
 * pip를 이용하는 경우
@@ -119,10 +119,10 @@ assert record.id == person.id
 하나씩 설명하자면 이렇다.
 
 * Meta: nested class로 정의되어있는 이 클래스가 Factory 클래스의 설정 값을 갖고있다. 자세하게는 이렇게 되어있다.
-    * model: 이 Factory 클래스가 어떤 객체모델을 표현하는 것인지를 나타낸다. Django나 MongoDB 모델에도 동일하게 사용된다.
-    * sqlalchemy_session: 이 Factory의 `build`/`create stretagy`에 따라 실행하는 쿼리가 사용될 세션을 의미한다. `pytest-factoryboy`에서는 각 테스트 함수, 그리고 테스트 쓰레드간의 독립성을 유지하기위해 `scoped_session`을 사용할 것을 권장하고 있다.
-    * sqlalchemy_session_persistence: session strategy에 따라 단위 작업간에 어떤 동작을 수행할 것인지에 대한 값인데, `None`, `flush`, `commit` 세가지 값 중 하나로 정의할 수 있다. `None`인 경우에는 DB에 아무 값도 쓰지 않고 모델 객체만 생성한다.
-    * sqlalchemy_get_or_create: unique key가 중복되는 레코드가 이미 있는 경우에 새로운 객체를 생성하지 않고 기존 객체를 불러올 수 있는데, 그 기준이 되는 컬럼을 의미한다. tuple 타입으로 정의해야 한다.
+  * model: 이 Factory 클래스가 어떤 객체모델을 표현하는 것인지를 나타낸다. Django나 MongoDB 모델에도 동일하게 사용된다.
+  * sqlalchemy_session: 이 Factory의 `build`/`create stretagy`에 따라 실행하는 쿼리가 사용될 세션을 의미한다. `pytest-factoryboy`에서는 각 테스트 함수, 그리고 테스트 쓰레드간의 독립성을 유지하기위해 `scoped_session`을 사용할 것을 권장하고 있다.
+  * sqlalchemy_session_persistence: session strategy에 따라 단위 작업간에 어떤 동작을 수행할 것인지에 대한 값인데, `None`, `flush`, `commit` 세가지 값 중 하나로 정의할 수 있다. `None`인 경우에는 DB에 아무 값도 쓰지 않고 모델 객체만 생성한다.
+  * sqlalchemy_get_or_create: unique key가 중복되는 레코드가 이미 있는 경우에 새로운 객체를 생성하지 않고 기존 객체를 불러올 수 있는데, 그 기준이 되는 컬럼을 의미한다. tuple 타입으로 정의해야 한다.
 
 아래의 `id`, `name`, `email`은 `Person` 객체에 있는 컬럼을 의미하고, 여기에 `Faker` 를 이용해서 임의 값을 생성하도록 한다는 의미이다.
 
@@ -310,7 +310,7 @@ def test_person(person):
 
 ## 결론
 
-pytest-factoryboy는 이렇게 패턴화된 데이터를 만들도록 하는 Factory 패턴을 통해 테스트 데이터를 만들기 쉽도록 도와준다. 상당히 편리하긴 하지만, 사용할 때 몇가지 알아야 할 것이 있다. 하나는 `sqlalchemy_session_persistence` 에 따라 이후 동작을 따로 해주어야 하는것인데, 이 값이 `None`인 경우에는 `create()` 함수를 호출하더라도 실제 DB에 레코드를 추가하지 않는다. `flush`와 `commit`은 DB 세션의 동작을 함께 정의하는데, 이 특성을 잘 알고 사용해야 한다. 
+pytest-factoryboy는 이렇게 패턴화된 데이터를 만들도록 하는 Factory 패턴을 통해 테스트 데이터를 만들기 쉽도록 도와준다. 상당히 편리하긴 하지만, 사용할 때 몇가지 알아야 할 것이 있다. 하나는 `sqlalchemy_session_persistence` 에 따라 이후 동작을 따로 해주어야 하는것인데, 이 값이 `None`인 경우에는 `create()` 함수를 호출하더라도 실제 DB에 레코드를 추가하지 않는다. `flush`와 `commit`은 DB 세션의 동작을 함께 정의하는데, 이 특성을 잘 알고 사용해야 한다.
 그리고 또 하나는 pytest-factoryboy에 있는데, factoryboy는 build -> insert -> commit 까지 수행해주지만 테스트 후에 teardown은 직접 해줘야 한다. DB에서 `DELETE` 쿼리는 따로 해줘야 한다는 것이다. 이에 대해 일반적인 사용 패턴은 python3의 unittest 라이브러리에서는 테스트 클래스 범위안에서 teardown 맴버함수를 정의하고 이 안에서 DB환경을 리셋하는 식으로 사용한다.
 
 ``` python

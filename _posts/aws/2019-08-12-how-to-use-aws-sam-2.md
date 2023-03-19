@@ -3,7 +3,7 @@ layout: post
 title: AWS SAM로 서비스를 만들어 보자 (2)
 subtitle: template 파일 구성하는 방법
 comments: true
-categories: ["Technology"]
+categories: ["Infrastructure", "CloudComputing", "AWS"]
 tag: ["AWS", "SAM", "Beginner", "Serverless", "Application"]
 ---
 
@@ -180,10 +180,10 @@ Outputs:
 
 ## 결론
 
-위에 조각조각 나뉘어진 YAML 코드들을 template.yaml 이라는 파일 하나에 묶어서 만들면 SAM에 대한 template.yaml 파일 구성이 끝난다. 이렇게 Template 파일을 정의하고 나면 다음은 실제 코드를 작성해야 한다. 앞선 포스트에서 설명했듯이 sam init 명령어를 통해 만든 파일들을 적당히 수정하면서 만들어보는 방향으로 시도해보면 비교적 익히기 쉬울 것이다. 
-
+위에 조각조각 나뉘어진 YAML 코드들을 template.yaml 이라는 파일 하나에 묶어서 만들면 SAM에 대한 template.yaml 파일 구성이 끝난다. 이렇게 Template 파일을 정의하고 나면 다음은 실제 코드를 작성해야 한다. 앞선 포스트에서 설명했듯이 sam init 명령어를 통해 만든 파일들을 적당히 수정하면서 만들어보는 방향으로 시도해보면 비교적 익히기 쉬울 것이다.
 
 ## 참고
+
 * [Template 파일 영역구성 설명](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 * [SAM 구성에 대한 설명](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md)
 * [CloudFormation 스택 구성에 대한 설명](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
