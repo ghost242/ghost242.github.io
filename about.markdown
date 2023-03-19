@@ -36,3 +36,7 @@ Worked as Backend engineer over 6+ years. Recently, researched the structure of 
 * Center for Manycore Programming at Seoul National University (Jan 2017)
 
 * Undergraduate Student Researcher in UC Irvine (Jul 2015 - Aug 2015)
+
+## Book library
+
+\[Now reading\] [Clean architecture - Robert C. Martin](/review/book/architecture/2023/03/15/clean-architecture.html)
