@@ -1,12 +1,15 @@
 ---
 layout: post
 title: Maven에서 Local storage에 있는 jar를 의존성패키지로 사용하는 방법
+categories: ["Programming", "Java", "Problem"]
 tags: ["java", "maven", "depandencies"]
 ---
-# 문제가 발생했다!!
+## 문제가 발생했다
+
 회사내에서 개발중인 java 프로젝트 작업을 하던 도중에 발생한 문제였다.
 
 일종의 Library형태로 개발중이던 패키지를 테스트하는 목적으로,
+
 1. 기능을 windows에서 수정하고,
 2. 이 패키지를 dependency로 사용하는 별도의 프로젝트를 만들어서
 3. runnable jar로 다시 한번 패키지로 만든 뒤에 linux에서 테스트를 하겠다
@@ -16,14 +19,16 @@ tags: ["java", "maven", "depandencies"]
 이때 그냥 maven package로 jar파일을 만들었을 때 하위 의존성이 걸린 패키지들을 불러오지 못하는 문제가 있었다. 그래서 그 부분에 대한 해결방법을 대충 찾아서 기록해두려고 한다.
 
 ## 간단한 참고
+
 * 사용중인 IDE툴: Jetbrains사의 Intellij
-* 개발 환경: Windows 10 
-* jdk 버전: 1.8.0_161 
+* 개발 환경: Windows 10
+* jdk 버전: 1.8.0_161
 
 ## 설정 방법
+
 ### jar 패키징
 
-기존 프로젝트를 maven package 명령으로 패키지 한 뒤에 테스트용 프로젝트에서 dependency로 추가하는 경우에 이 jar에 있는 dependency를 제대로 못가져오는 문제가 있다. 
+기존 프로젝트를 maven package 명령으로 패키지 한 뒤에 테스트용 프로젝트에서 dependency로 추가하는 경우에 이 jar에 있는 dependency를 제대로 못가져오는 문제가 있다.
 따라서 아래와 같이 pom.xml을 일부 수정해서 의존성 패키지들을 불러올 수 있도록 해줘야 한다.
 
 ```xml
@@ -66,8 +71,10 @@ tags: ["java", "maven", "depandencies"]
     </plugins>
 </build>
 ```
-##### 출처: [[Stackoverflow] Including dependencies in a jar with Maven](https://stackoverflow.com/a/49398943) 의 답변 중에서 Leslie Li의 답변
-이렇게 하면 jar가 패키지된 폴더에 lib라는 폴더를 새로 만들고, 여기에 이 프로젝트가 의존하는 jar를 몽땅 복사해넣는다. 
+
+> 출처: [[Stackoverflow] Including dependencies in a jar with Maven](https://stackoverflow.com/a/49398943) 의 답변 중에서 Leslie Li의 답변
+
+이렇게 하면 jar가 패키지된 폴더에 lib라는 폴더를 새로 만들고, 여기에 이 프로젝트가 의존하는 jar를 몽땅 복사해넣는다.
 
 테스트 프로젝트 생성
 

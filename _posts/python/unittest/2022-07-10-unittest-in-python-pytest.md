@@ -3,7 +3,7 @@ layout: post
 title: pytest로 시스템 테스트를 하는 방법 - 1
 subtitle: FastAPI 서버를 테스트하는 방법
 comments: true
-categories: ["Programming"]
+categories: ["Programming", "Python3", "Testing"]
 tag: ["Test", "Python", "FastAPI", "pytest"]
 ---
 
