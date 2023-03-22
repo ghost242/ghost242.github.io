@@ -3,7 +3,7 @@ layout: post
 title: AWS SAM로 서비스를 만들어 보자 (3)
 subtitle: SAM 명령어로 서비스를 배포하는 방법
 comments: true
-categories: ["Technology"]
+categories: ["Technology", "CloudService", "AWS"]
 tag: ["AWS", "SAM", "Beginner", "Serverless", "Application"]
 ---
 
@@ -78,9 +78,6 @@ sam deploy \
 
 pypi에서 해당 패키지를 찾아보면 python 3.6, 3.7 버전을 지원한다고 되어있다. 그 이외의 버전에서 호환되는지는 확인할 수 없었지만, 아마 3.5 이하 버전에서는 표준 패키지등의 호환성 문제로 일부 기능이 정상동작하지 않을 가능성이 있다.
 
-
-
 ## 배포 과정
 
 ## 결과
-
