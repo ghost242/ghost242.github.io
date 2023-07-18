@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Haskell
+title: Haskell 코드를 컴파일 하는 방법
 subtitle: Hello world!
 comments: true
 categories: ["Programming", "Haskell"]
