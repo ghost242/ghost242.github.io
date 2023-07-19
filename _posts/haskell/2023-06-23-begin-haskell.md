@@ -12,7 +12,7 @@ tag: ["Haskell", "Functional programming"]
 Haskell은 GHC 라고 하는 컴파일러를 이용해서 바이너리파일을 직접 만들 수 있는 컴파일 언어이다. 과거에는 컴파일러인 GHC와 GHCi 라고 하는 대화형 인터프리터, runghc 라는 스크립트 실행기 형태로 사용하는 방법이 소개되었고 cabal 프로젝트 매니저를 이용해서 패키지 형태로 관리할 수 있게 하는 방법들을 소개했었다.
 지금은 GHCup 라고 하는 Haskell 생태계를 관리하는 관리자를 이용해서 따로 설치해야 했던 ghc, cabal, stack, langhage haskell server의 설치버전을 관리할 수 있게됐다.
 
-![GHCup의 terminal UI](../../img/2023-06-23-studying-about-haskell/screenshot_ghcup_tui.png)
+![GHCup의 terminal UI](/img/2023-06-23-studying-about-haskell/screenshot_ghcup_tui.png)
 
 여기에서 초록색 체크 심볼은 설치되어있는 버전, 현재 적용되어있는 버전 이렇게 두가지를 각각 표기하고있다. 예전엔 따로 개발자가 직접 관리해야했다면 지금은 이렇게 통합해서 관리할 수 있는 모듈이 생긴 것으로 이해할 수 있다. 결론은 아무튼 좋아졌다.
 
