@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+nav_order: 1
 permalink: /about/
 ---
 
@@ -27,7 +28,7 @@ Worked as Backend engineer over 6+ years. Recently, researched the structure of 
 
 ### Experience
 
-* Madup Inc. (June 2019 - present)
+* Madup Inc. (June 2019 - March 2023)
 
 * DRM Inside Inc. (May 2016 - June 2019)
 
