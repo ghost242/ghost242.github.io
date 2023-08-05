@@ -2,7 +2,6 @@
 layout: post
 title: Ubuntu 22.04 에서 절전모드와 최대절전모드를 활성화 하는 방법
 parent: Utility
-grand_parent: Posts
 category: ["Linux", "Utility"]
 tag: ["Linux", "Ubuntu", "Power management", "Hibernate"]
 ---

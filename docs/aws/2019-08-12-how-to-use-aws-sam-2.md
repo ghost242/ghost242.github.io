@@ -2,7 +2,7 @@
 layout: post
 title: AWS SAM로 서비스를 만들어 보자 (2)
 subtitle: template 파일 구성하는 방법
-parent: AWS docs
+parent: AWS
 comments: true
 categories: ["Technology", "CloudService", "AWS"]
 tag: ["AWS", "SAM", "Beginner", "Serverless", "Application"]

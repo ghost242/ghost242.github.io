@@ -2,7 +2,7 @@
 layout: post
 title: AWS SAM로 서비스를 만들어 보자 (3)
 subtitle: SAM 명령어로 서비스를 배포하는 방법
-parent: AWS docs
+parent: AWS
 comments: true
 categories: ["Technology", "CloudService", "AWS"]
 tag: ["AWS", "SAM", "Beginner", "Serverless", "Application"]
