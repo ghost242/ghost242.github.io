@@ -44,7 +44,7 @@ with Session(engine) as sess: | |
 : : sess.query(RecordA).update({RecordA.val: 54321}) | : : sess.query(RecordA).all() | 
 : : sess.commit() | |
 
-거칠긴 하지만 이 상황에서 Transaction isolation level에 따라 시스템이 멈춰버리거나, 잘못된 데이터가 나오거나 하는 문제가 생기게 된다. 직접 겪었던 문제는 시스템이 멈춰버리는 현상이었다. 
+거칠긴 하지만 이 상황에서 Transaction isolation level에 따라 시스템이 멈춰버리거나, 잘못된 데이터가 나오거나 하는 문제가 생기게 된다. 직접 겪었던 문제는 시스템이 멈춰버리는 현상이었는데, 아마도 DB에서 쿼리 결과를 반환할때까지 기다리는동안 DB에서는 lock으로 쿼리가 실패하고 이 쿼리 실패를 대비하지 않았던게 문제가 아니었을까 하고 짐작했다. 
 
 ## 사례에 대한 해결 전략
 
@@ -54,7 +54,7 @@ Transaction isolation level이 어떤것인지 찾아보기위해 SQLAlchemy 문
 
 이 Isolation level이 문제가 되었던 것으로 파악했는데, `create_engine` 함수를 이용해서 DB와 통신을 시작할 때 별도의 Isolation level을 지정해주지 않으면 기본 값으로 DB dialect에따라 다른 값이 들어갈 수 있다. 이게 무슨 문제를 일으킬 지 예측하기 어렵다는 것이 문제의 핵심이었다.
 
-따라서 이 문제는 Isolation level을 명시적으로 지정해주는 방식으로 해결할 수 있었다. 구체적으로는 위에서 제시했던대로 `create_engine` 함수의 파라미터에 넣었지만, 활용방법에 따라 여러 코드 형태가 있을 수 있다.
+따라서 이 문제는 Isolation level을 명시적으로 지정해주는 방식으로 해결할 수 있었다. 구체적으로는 `create_engine` 함수의 파라미터에 넣었지만, 활용방법에 따라 여러 코드 형태가 있을 수 있다.
 
 ### 코드 예제
 
