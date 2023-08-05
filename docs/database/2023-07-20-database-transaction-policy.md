@@ -40,10 +40,122 @@ ProcA | ProcB | Note
 with Session(engine) as sess: | | 
 : with sess.begin(): | with Session(engine) as sess: |
 : : sess.add(RecordA) | : with sess.begin(): |
-: : sess.commit() | : |
-: : sess.query.update({RecordA.val: 54321}) | | 
 : : sess.commit() | |
+: : sess.query(RecordA).update({RecordA.val: 54321}) | : : sess.query(RecordA).all() | 
+: : sess.commit() | |
+
+거칠긴 하지만 이 상황에서 Transaction isolation level에 따라 시스템이 멈춰버리거나, 잘못된 데이터가 나오거나 하는 문제가 생기게 된다. 직접 겪었던 문제는 시스템이 멈춰버리는 현상이었다. 
 
 ## 사례에 대한 해결 전략
 
+Transaction isolation level이 어떤것인지 찾아보기위해 SQLAlchemy 문서를 뒤져봤는데, wikipedia 문서의 내용을 이렇게 인용하고 있다.
+
+| "The isolation property of the ACID model ensures that the concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially, i.e. one after the other. Each transaction must execute in total isolation i.e. if T1 and T2 execute concurrently then each should remain independent of the other. (via [isolation(Wikipedia)](https://en.wikipedia.org/wiki/Isolation_(database_systems)))" 
+
+이 Isolation level이 문제가 되었던 것으로 파악했는데, `create_engine` 함수를 이용해서 DB와 통신을 시작할 때 별도의 Isolation level을 지정해주지 않으면 기본 값으로 DB dialect에따라 다른 값이 들어갈 수 있다. 이게 무슨 문제를 일으킬 지 예측하기 어렵다는 것이 문제의 핵심이었다.
+
+따라서 이 문제는 Isolation level을 명시적으로 지정해주는 방식으로 해결할 수 있었다. 구체적으로는 위에서 제시했던대로 `create_engine` 함수의 파라미터에 넣었지만, 활용방법에 따라 여러 코드 형태가 있을 수 있다.
+
+### 코드 예제
+
+* create_engine
+
+```python
+url = URL.create(
+    drivername="mysql+mysqlconnector",
+    username="client",
+    password="password",
+    host="127.0.0.1",
+    port=3306,
+    database="database",
+)
+### isolation_level
+engine = create_engine(
+    url,
+    isolation_level="SERIALIZABLE",  # Transaction isolation level을 지정하는 위치
+)
+### execution_options
+engine = create_engine(
+    url,
+    execution_options={
+        "isolation_level": "SERIALIZABLE",  # keyword argument가 아니라 dict 타입으로 옵션을 정의하는 형식도 지원함을 알 수 있다.
+    }
+)
+```
+
+* Connect.execution_options
+
+```python
+engine = create_engine(url)
+
+with engine.connect().execution_options(
+    isolation_level="SERIALIZABLE",
+) as conn:
+    with conn.begin():
+        ...
+```
+
+* Engine.execution_options
+
+```python
+engine = create_engine(url)
+opt_eng = engine.execution_engine(isolation_level="SERIALIZABLE")
+...
+```
+
+이렇게 다양한 방식을 지원하는 이유는 core 레벨의 API와 orm 레벨의 API에따라 Transaction을 다루거나 코드를 구성하는 방식이 다르기 때문이다. Transaction을 어떻게 만들고 제어하는지는 다음에 정리해봐야 할 것 같다.
+
+### Isolation level
+
+Isolation level은 시스템 성격에따라 섬세하게 다룰 필요가 있다. 그래서 특성에 따라서 적절하게 제어하기 위해 Isolation level에 대해서도 조사했다. Isolation level은 4가지가 있고, SQLAlchemy 라이브러리에서 제공하는 level이 하나 더 있다. 
+
+또 하나의 기억해야 할 것은 MySQL의 InnoDB 엔진은 기본적으로 "REPEATABLE READ"이 기본 값이고, PostgreSQL의 엔진에서는 "READ COMMITTED"가 기본 값이라고 각 문서에 언급되어있다. PostgreSQL 문서에 좋은 내용이 있는데, Transaction의 동시성으로 발생할 수 있는 문제들이 이런 것들이 있다.
+
+* dirty read
+
+    > A transaction reads data written by a concurrent uncommitted transaction.
+
+* nonrepeatable read
+
+    > A transaction re-reads data it has previously read and finds that data has been modified by another transaction (that committed since the initial read).
+
+* phantom read
+
+    > A transaction re-executes a query returning a set of rows that satisfy a search condition and finds that the set of rows satisfying the condition has changed due to another recently-committed transaction.
+
+* serialization anomaly
+
+    > The result of successfully committing a group of transactions is inconsistent with all possible orderings of running those transactions one at a time.
+
+Isolation Level | Dirty Read | Nonrepeatable Read | Phantom Read | Serialization Anomaly
+---|---|---|---|---
+Read uncommitted | Allowed, but not in PG | Possible | Possible | Possible
+Read committed | Not possible | Possible | Possible | Possible
+Repeatable read | Not possible | Not possible | Allowed, but not in PG | Possible
+Serializable | Not possible | Not possible | Not possible | Not possible
+
+*출처: [13.Concurrency control > 13.2 Transaction isolation - PosgtreSQL](https://www.postgresql.org/docs/current/transaction-iso.html)*
+
+한국어로 번역하다가 너무 어려워서 안했는데, 이름이 특징을 잘 드러내고있다고 본다. 
+
+Isolation Level을 다루는 전략도 MySQL과 PostgreSQL이 약간 달랐늗데, MySQL은 기본적으로 `transaction begin;`이 발생하면 직전에 snapshot을 만들고 이 snapshot을 locking하는 전략으로 이해해야 한다. PostgreSQL에서는 "READ UNCOMMITTED" 전략을 배제하고 있어서 실질적으로 세가지 Level만 지정할 수 있다.
+
+Isolation Level | Description
+"AUTOCOMMIT" | 세션 단위에서 commit을 하면 Transaction도 함께 매번 commit을 수행한다.(SQLAlchemy 라이브러리 수준에서의 제어)
+"READ COMMITTED" | 어떤 Transaction이 쿼리할 수 있는 데이터는 다른 Transaction이 이미 Commit을 끝낸 데이터이다. MySQL에서는 다른 Transaction이 commit을 완료할 때 snapshot을 갱신한다. 
+"READ UNCOMMITTED" | 어떤 Transaction이 다른 Transaction에서 아직 commit을 끝내지 않은 데이터를 쿼리할 수 있다. PostgreSQL에서는 이 값을 지정하더라도 "READ COMMITTED"로 처리한다. 
+"REPEATABLE READ" | `transaction begin;` 전에 commit을 마친 데이터만 볼 수 있다. 실행중인 Transaction 안에서는 다른 Transaction 데이터 변경을 commit 하더라도 볼 수 없다. MySQL에서는 Transaction이 시작될 때 snapshot을 만들고 이 snapshot을 갱신하지 않는다.
+"SERIALIZABLE" | 동시성에서 생기는 side-effect를 차단하기 위해 모든 Transaction에서 요청되는 쿼리를 순차적으로 처리하는 방법이다. 어떤 record의 row에 쿼리를 할 때 Transaction이 close된 뒤에 다른 Transaction이 접근할 수 있다. multi process, multi thread를 다루는 프로그램에서는 전체적인 성능 하락이 발생할 수도 있다.
+
+
 ## 결론
+
+이번 이슈를 해결하는 과정에서 제일 큰 난관은 Isolation level이라는게 있을 수 있다는걸 생각하지 못했던 문제였다. 여러 Transaction이 만들어졌을 때 코드의 실행 흐름을 flow chart로 그려보고 충돌이 발생할만한 지점들을 각각 실험하기위한 코드들을 만들어서야 원인을 찾을 수 있었고 해결 방안도 동시성에서 race condition이 생길 수 있다는 것을 잊어버리고 있다가 떠올리고 나서야 조사할 수 있었다. 
+
+또한 이 문제를 조사하면서 Transaction에 대해서도 어렴풋이 알고있던 것들을 명확한 모델로 머릿속에 그려볼 수 있었기 때문에 가장 큰 성과는 Isolation level이 있구나 하는 것을 찾아낸게 아니라 DB가 동시성에서 생기는 race condition을 어떻게 다루는지 생각해볼 수 있었던 고찰 그 자체였다고 생각한다. 
+
+## 참고
+
+* [SQLAlchemy - Setting Transaction Isolation Levels including DBAPI Autocommit](https://docs.sqlalchemy.org/en/20/core/connections.html#setting-transaction-isolation-levels-including-dbapi-autocommit)
+* [MySQL - 15.7.2.1 Transaction Isolation Levels](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)
+* [PostgreSQL - Chapter 13. Concurrency Control > 13.2. Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html)
