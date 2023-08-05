@@ -107,9 +107,9 @@ opt_eng = engine.execution_engine(isolation_level="SERIALIZABLE")
 
 ### Isolation level
 
-Isolation level은 시스템 성격에따라 섬세하게 다룰 필요가 있다. 그래서 특성에 따라서 적절하게 제어하기 위해 Isolation level에 대해서도 조사했다. Isolation level은 4가지가 있고, SQLAlchemy 라이브러리에서 제공하는 level이 하나 더 있다. 
+Isolation Level은 Transaction 동시성에서 여러 쿼리를 어떻게 처리할지에 대한 전략이라고 할 수 있다. MySQL과 PostgreSQL이 약간 달랐늗데, MySQL은 기본적으로 `transaction begin;`이 발생하면 직전에 snapshot을 만들고 이 snapshot을 locking하는 전략으로 이해해야 한다. PostgreSQL에서는 "READ UNCOMMITTED" 전략을 배제하고 있어서 실질적으로 세가지 Level만 지정할 수 있다.
 
-또 하나의 기억해야 할 것은 MySQL의 InnoDB 엔진은 기본적으로 "REPEATABLE READ"이 기본 값이고, PostgreSQL의 엔진에서는 "READ COMMITTED"가 기본 값이라고 각 문서에 언급되어있다. PostgreSQL 문서에 좋은 내용이 있는데, Transaction의 동시성으로 발생할 수 있는 문제들이 이런 것들이 있다.
+또한 MySQL의 InnoDB 엔진에서는 "REPEATABLE READ"이 기본값이고, PostgreSQL의 엔진에서는 "READ COMMITTED"가 기본 값이라고 각 문서에 언급되어있다. PostgreSQL 문서에서는 Transaction의 동시성에서 아래와 같은 문제가 발생할 수 있다고 한다. 
 
 * dirty read
 
@@ -138,7 +138,7 @@ Serializable | Not possible | Not possible | Not possible | Not possible
 
 한국어로 번역하다가 너무 어려워서 안했는데, 이름이 특징을 잘 드러내고있다고 본다. 
 
-Isolation Level을 다루는 전략도 MySQL과 PostgreSQL이 약간 달랐늗데, MySQL은 기본적으로 `transaction begin;`이 발생하면 직전에 snapshot을 만들고 이 snapshot을 locking하는 전략으로 이해해야 한다. PostgreSQL에서는 "READ UNCOMMITTED" 전략을 배제하고 있어서 실질적으로 세가지 Level만 지정할 수 있다.
+Isolation level은 시스템 성격에따라 섬세하게 다룰 필요가 있다. 그래서 특성에 따라서 적절하게 제어하기 위해 Isolation level에 대해서도 조사했다. Standard isolation level로 4가지가 있고, SQLAlchemy 라이브러리에서 제공하는 level이 하나 더 있다. 
 
 Isolation Level | Description
 "AUTOCOMMIT" | 세션 단위에서 commit을 하면 Transaction도 함께 매번 commit을 수행한다.(SQLAlchemy 라이브러리 수준에서의 제어)
@@ -147,6 +147,7 @@ Isolation Level | Description
 "REPEATABLE READ" | `transaction begin;` 전에 commit을 마친 데이터만 볼 수 있다. 실행중인 Transaction 안에서는 다른 Transaction 데이터 변경을 commit 하더라도 볼 수 없다. MySQL에서는 Transaction이 시작될 때 snapshot을 만들고 이 snapshot을 갱신하지 않는다.
 "SERIALIZABLE" | 동시성에서 생기는 side-effect를 차단하기 위해 모든 Transaction에서 요청되는 쿼리를 순차적으로 처리하는 방법이다. 어떤 record의 row에 쿼리를 할 때 Transaction이 close된 뒤에 다른 Transaction이 접근할 수 있다. multi process, multi thread를 다루는 프로그램에서는 전체적인 성능 하락이 발생할 수도 있다.
 
+한가지 더 붙여두자면, OracleDB에서 정리해둔 문서도 있는데, Reference로만 남겨둔다.
 
 ## 결론
 
@@ -159,3 +160,4 @@ Isolation Level | Description
 * [SQLAlchemy - Setting Transaction Isolation Levels including DBAPI Autocommit](https://docs.sqlalchemy.org/en/20/core/connections.html#setting-transaction-isolation-levels-including-dbapi-autocommit)
 * [MySQL - 15.7.2.1 Transaction Isolation Levels](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)
 * [PostgreSQL - Chapter 13. Concurrency Control > 13.2. Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html)
+* [OracleDB - 9 Data Concurrency and Consistency](https://docs.oracle.com/cd/E25054_01/server.1111/e25789/consist.htm)
