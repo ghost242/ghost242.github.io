@@ -1,6 +1,12 @@
 ---
 layout: post
 title: Exception 객체를 직렬화 하는 방법
+subtitle: tblib에 대한 설명과 사용법
+parent: Trick of code
+grand_parent: Python
+comments: true
+categories: ["Programming", "Python3", "Exception"]
+tag: ["Python3", "Exception", "Pickling"]
 ---
 
 ## 상황
