@@ -7,11 +7,11 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 4.2.0"
+gem "jekyll", "~> 4.3.2"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.5.1"
 # gem "minimal-mistakes-jekyll"
-gem "just-the-docs", "~> 0.5.0"
+gem "just-the-docs"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
@@ -38,6 +38,6 @@ end
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 
-gem "webrick", "~> 1.7"
+# gem "webrick", "~> 1.7"
 
 gem "kramdown-syntax-coderay", "~> 1.0"
