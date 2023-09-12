@@ -1,10 +1,12 @@
 ---
 layout: post
-title: 유닛테스트 코드 작성 - 1
-subtitle: pytest를 활용하는 방법
+title: pytest로 시스템 테스트를 하는 방법 - 1
+subtitle: FastAPI 서버를 테스트하는 방법
+parent: Unittest
+grand_parent: Python
 comments: true
-categories: ["Programming"]
-tag: ["Test", "Python", "FastAPI, "pytest"]
+categories: ["Programming", "Python3", "Testing"]
+tag: ["Test", "Python", "FastAPI", "pytest"]
 ---
 
 ## 개요
@@ -189,5 +191,5 @@ def test_app_insert(client, sample_value):
 
 ## 참고 자료
 
-* [Pytest 공식 문서 -- fixture]()
+* [Pytest 공식 문서 -- fixture](https://docs.pytest.org/en/6.2.x/fixture.html)
 * [FastAPI 공식 문서 -- Test](https://fastapi.tiangolo.com/tutorial/testing/)
