@@ -28,9 +28,10 @@ nav_order: 0
 
 ### Language
 
-[![Python](/img/logos/python_logo_icon_168886.png)](/docs/python/)
-[![Java](/img/logos/java_original_logo_icon_146458.png)](/docs/java/)
-[![Haskell](/img/logos/haskell_logo_icon_170039.png)](/docs/haskell/)
+<a href="/docs/python/"> <img src="/img/logos/Python-logo-notext.svg" width=40 height=40 /></a>
+<a href="/docs/java/"> <img src="/img/logos/Java_programming_language_logo.svg" width=40 height=40 /></a>
+<a href="/docs/haskell/"> <img src="/img/logos/Haskell-logo.svg" width=40 height=40 /></a>
+<a href="/docs/nodejs/"> <img src="/img/logos/Node.js_logo.svg" width=100 height=40 /></a>
 
 ---
 
