@@ -76,12 +76,12 @@ search:
 mermaid:
   # Version of mermaid library
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
-  version: "10.2.4"
+  version: "10.9.0"
 
 kramdown:
-  syntax_highliighter_opts:
-    block:
-      line_numbers: true
+  math_engine: katex 
+  math_engine_opts: 
+    output: mathml
 
 # Exclude from processing.
 # The following items will not be processed, by default.

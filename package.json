@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "exactjs": "^0.0.1",
+    "execjs": "^1.0.7"
+  }
+}
