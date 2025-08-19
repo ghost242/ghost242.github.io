@@ -1,21 +1,25 @@
 ---
 layout: post
-title: 데이터 클래스에 대해서
-subtitle: Basic of dataclass in Programming
+title: 타입에 대해서
+subtitle: Basic of type in Programming
 parent: Haskell
 has_toc: true
 comments: true
 categories: ["Programming", "Haskell"]
-tag: ["Haskell", "Functional programming", "Dataclass"]
+tag: ["Haskell", "Functional programming", "Type"]
 ---
 
 ## Abstract
 
-Functional Programming 을 공부하기 위해서 Haskell을 보던 중에 이해하기 어려웠던 개념은 여기서부터 시작이었다. 그래도 이 시점까지는 그렇게까지 어렵지 않았는데, 어떻게 보면 그나마도 쉬웠던 마지막 지점이 바로 여기였다. 이 문서는 현재 아주 널리 퍼져있는 절차적 언어와 객체지향 언어와 차이가 생기는 이 개념에 대해 내가 어떻게 이해하고 있는지를 정리한 문서이다.
+Functional Programming 을 공부하기 위해서 Haskell을 보던 중에 이해하기 어려웠던 개념은 여기서부터 시작이었다. 이 언어는 다른 언어에서는 약간의 인간의 직관에 의존하는 듯한 개념들을 전부 수학적인 증명을 토대로 하고있는것 처럼 보이는데, 그 이유가 타입에 있다는 생각을 하게 되었다.
+
+Haskell은 강한 타입 언어에 속한다고 알려져 있다. 이 언어는 얼마나 엄격한지 C언어에서 제한적으로 허용하는 암시적 형변환(Implicit type casting)을 절대 허용하지 않는다. 예를 들어 우리는 2 ^ 10이 암묵적으로 Integer를 반환하는 함수라고 인지한다. 하지만 Haskell 안에서 거듭제곱을 의미하는 이 ^ 연산자는 Num 타입을 상속하는 타입 a를 입력받아 같은 타입 a를 출력한다고 정의된다. 말하자면 Int로 입력하면 반드시 Int가 출력되고, Floating이 입력되면 Floating 타입이 출력된다는 의미이다.
+
+이 문서는 바로 Haskell에서 관리하는 타입에 대해 정리하는 문서이다.
 
 ## Basic
 
-데이터 클래스는 흥미롭게도 두가지 단어의 조합으로 되어있다. 하나는 데이터, 그리고 또 하나는 클래스이다. 데이터는 말 그대로 데이터이고, 클래스는 집합론에서의 대상을 의미하는 것으로 보인다. 그 이유는 앞의 문서에서도 이야기했지만, 이 언어가 다루는 가장 중요한 객체가 바로 함수이기 때문이다.
+간단히 내용을 나열했지만 사실 타입이란 컴퓨터가 자료를 적절하게 다루기 위해 다루는 것으로 이해하면 충분하다. 하지만 Haskell에서, 적어도 지금 문서를 작성중인 내 시점에서, 비슷하게 사용되는 키워드가 아주 다양하다. 
 
 ### Class in the Set theory
 
@@ -29,11 +33,17 @@ Functional Programming 을 공부하기 위해서 Haskell을 보던 중에 이�
 
 `In set theory and its applications throughout mathematics, a class is a collection of sets (or sometimes other mathematical objects) that can be unambiguously defined by a property that all its members share.` ([Class in Wikipedia](https://en.wikipedia.org/wiki/Class_(set_theory)))
 
-라고 되어있다. 솔직히 영문 위키의 정의가 좀 더 이해하기 쉬웠지만, 아무튼 이런 의미이다.
+라고 되어있다. 영문 위키의 정의가 좀 더 이해하기 쉽게 느껴진다.
 
-왜 이 내용을 알아야 하는지, 그것은 이 개념이 OOP에서의 클래스와는 비슷하면서도 다르다는 것을 확실히 하고 싶어서이다. OOP에서의 클래스는 이 추상화된 개념들을 통해 구체화한 객체(Instance)의 공통속성을 묶음으로 정의하기 위하여 사용되는데, 목적이 객체에 있음이 중요하다. 객체가 시스템 안에서 할 수 있는 기능이나 행위를 Method로 정의해서 객체에 종속시키기 때문이다.
+### Class in the Knowledge reprsentation
 
-하지만 데이터 클래스는 이렇게 종속된 Method가 없다. 하위의 멤버인 집합을 모음으로 갖고있을 뿐이다. 상속과 다형성의 개념도 갖고있고, 클래스를 공역/치역으로 두는 함수도 있다. 
+위의 설명과 지금 하려는 Class에 대한 설명은 약간의 차이가 있다. 아마도 그 차이는 실제 세계를 수학적 모델로 다루는 Class의 의미와 객체로서의 분류를 의미하는 Class와의 의미 차이때문인 것으로 보인다. 위키피디아에서는 지식의 표현에 있어서 Class를 다음과 같은 문구로 정의하고 있다.
+
+`A class is a collection of individuals or individuals objects.` ([클래스 in Wikipedia](https://en.wikipedia.org/wiki/Class_(knowledge_representation)))
+
+
+
+본격적인 문법 수준에서의 표현으로 넘어가기 전에 조금만 더 이론적인 시점에서 살펴본 후 넘어가려고 한다. 
 
 ## Dataclass in Haskell
 
