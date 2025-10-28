@@ -47,7 +47,7 @@ $$
 
 위의 내용을 바탕으로 Haskell의 함수를 바라보아야 Haskell 코드의 작동 방식을 제대로 이해할 수 있다. 간단한 예로 $f(x) = x + 1$ 을 Haskell 문법으로 표현하면 이렇게 된다.
 
-``` haskell
+```haskell
 f :: Num -> Num
 f x = x + 1
 ```
