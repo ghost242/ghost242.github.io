@@ -30,7 +30,7 @@ nav_order: 0
 
 <a href="/docs/python/"> <img src="/img/logos/Python-logo-notext.svg" width=40 height=40 /></a>
 <a href="/docs/java/"> <img src="/img/logos/Java_programming_language_logo.svg" width=40 height=40 /></a>
-<a href="/docs/haskell/"> <img src="/img/logos/Haskell-logo.svg" width=40 height=40 /></a>
+<a href="/docs/haskell/"> <img src="/img/logos/Haskell-Logo.svg" width=40 height=40 /></a>
 <a href="/docs/nodejs/"> <img src="/img/logos/Node.js_logo.svg" width=100 height=40 /></a>
 
 ---
