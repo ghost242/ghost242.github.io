@@ -8,39 +8,19 @@ title: AAAhram Computer Lab.
 nav_order: 0
 ---
 
-## 이 블로그에서 다루고있는 것들
+## Interest items
 
+* AI
+  * Symbolic AI
+  * LLM
+  * Agent
 
----
+* Programming language
+  * Python
+  * Haskell
 
-### Cloud
+* Software engineering
 
-[![AWS](/img/logos/amazon_aws_logo_icon_170593.png)](/docs/aws/)
+## Reading Notes
 
----
-
-### Database
-
-[![MySQL](/img/logos/mysql_plain_logo_icon_146414.png)](/docs/database/)
-[![PostgreSQL](/img/logos/postgresql_logo_icon_170835.png)](/docs/database/)
-
----
-
-### Language
-
-<a href="/docs/python/"> <img src="/img/logos/Python-logo-notext.svg" width=40 height=40 /></a>
-<a href="/docs/java/"> <img src="/img/logos/Java_programming_language_logo.svg" width=40 height=40 /></a>
-<a href="/docs/haskell/"> <img src="/img/logos/Haskell-Logo.svg" width=40 height=40 /></a>
-<a href="/docs/nodejs/"> <img src="/img/logos/Node.js_logo.svg" width=100 height=40 /></a>
-
----
-
-### OS 
-
-[![Linux](/img/logos/linux_original_logo_icon_146433.png)](/docs/utility/)
-
-#### Distributions
-
-[![Ubuntu](/img/logos/ubuntu_logo_icon_147216.png)](/docs/utility/)
-
----
+\[Now reading\] [Clean architecture - Robert C. Martin](/review/book/architecture/2023/03/15/clean-architecture.html)

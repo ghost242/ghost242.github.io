@@ -57,7 +57,3 @@ With a background in Computer Engineering, I approach these problems from an arc
 * Center for Manycore Programming at Seoul National University (Jan 2017)
 
 * Undergraduate Student Researcher in UC Irvine (Jul 2015 - Aug 2015)
-
-## Reading Notes
-
-\[Now reading\] [Clean architecture - Robert C. Martin](/review/book/architecture/2023/03/15/clean-architecture.html)
