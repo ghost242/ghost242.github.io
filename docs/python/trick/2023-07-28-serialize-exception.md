@@ -261,7 +261,7 @@ if __name__=="__main__":
 여러 방법이 있을 수 있을 것이다. 하지만 이렇게 하면 객체 자체를 주고 받으면서 try-except 문법을 그대로 사용할 수 있어 가장 문법적으로 어색하지 않은 방법이 될 수 있을 것이라고 생각했다. 이 객체를 받아와서 다시 Exception raise를 할 수도 있다.
 
 ```python
-raise Exception("Got exception from external system) from exc
+raise Exception("Got exception from external system") from exc
 ```
 
 이렇게 `raise-from` 구문을 활용하면 Exception을 체이닝 할 수 있기 때문에 더 자세한 스택 목록을 출력해볼 수 있고 디버깅에 도움이 될 수도 있을 것 같다. 단점으로는 출력되는 메시지 길이가 너무 길어지고 불필요한 정보가 섞여서 분석을 방해할 수 있기 때문에 용도와 코드 구조, 환경을 잘 파악해서 적용 할 필요가 있다. 참고로 만약 그렇게 하고싶지 않다면 그냥 이렇게 하면 된다.

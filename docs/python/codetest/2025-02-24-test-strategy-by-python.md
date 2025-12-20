@@ -2,7 +2,7 @@
 layout: post
 title: 테스트 코드를 작성하는 과정
 subtitle: 언제 누굴 대상으로 테스트를 해야 하는가
-parent: Unittest
+parent: Tests
 grand_parent: Python
 comments: true
 categories: ["Programming", "Python3", "Testing"]

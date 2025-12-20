@@ -2,7 +2,7 @@
 layout: post
 title: pytest로 시스템 테스트를 하는 방법 - 3 
 subtitle: 행위 기반 테스트(Behavior driven development) 
-parent: Unittest
+parent: Tests
 grand_parent: Python
 comments: true
 categories: ["Programming", "Python3", "Testing"]
