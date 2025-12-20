@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Inference Engine란 무엇인가
+title: Inference Engine 1. Inference Engine란 무엇인가
 subtitle: Inference Engine에 대해서
 parent: Symbolic AI
 grand_parent: AI
 comments: true
 categories: ["Programming", "Symbolic", "Inference Engine"]
-tag: ["Inference Engine", "Symbolic System", "Prolog"]
+tag: ["Inference Engine", "Symbolic System"]
 ---
 
 ## From Knowledge to Inference
