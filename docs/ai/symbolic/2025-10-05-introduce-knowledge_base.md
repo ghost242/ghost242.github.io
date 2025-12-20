@@ -2,7 +2,7 @@
 layout: post
 title: Prolog으로 살펴보는 지식 베이스의 구조
 subtitle: 관계를 중심으로 지식을 표현하는 방법
-parent: RAG
+parent: Symbolic AI
 grand_parent: AI
 comments: true
 categories: ["Programming", "RAG", "Knowledge Base"]
