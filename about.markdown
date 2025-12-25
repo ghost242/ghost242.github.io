@@ -7,7 +7,7 @@ permalink: /about/
 
 ## Overview
 
-I am a software engineer with over nine years of experience working on backend systems across domains such as education platforms, digital marketing services, and DRM solutions. In my most recent role, I built systems for collecting and analyzing web data, which led me to explore AI-based approaches—particularly large language models—for semantic understanding and reasoning over complex information.
+I am a software engineer with over 9 years of experience working on backend systems across domains such as education platforms, digital marketing services, and DRM solutions. In my most recent role, I built systems for collecting and analyzing web data, which led me to explore AI-based approaches—particularly large language models—for semantic understanding and reasoning over complex information.
 
 With a background in Computer Engineering, I approach these problems from an architectural perspectives, focusing on trade-offs, and real-world constraints, and long-term maintainability. I enjoy building software, solving complex problems, and continuously learning new technologies through hands-on experimentation.
 
