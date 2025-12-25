@@ -14,12 +14,20 @@ nav_order: 0
   * Symbolic AI
   * LLM
   * Agent
+  * Vector Embedding
 
 * Programming language
   * Python
   * Haskell
 
+* Infrastructure
+  * Network Programming
+  * Database
+
 * Software engineering
+  * Designing Architecture
+  * Testing System
+  * DevOps
 
 ## Reading Notes
 
