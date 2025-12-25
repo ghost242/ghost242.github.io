@@ -28,10 +28,10 @@ Python2는 한동안 Linux 배포판에 기본으로 포함되어있었을 정�
 
 `python.c`에 entrypoint가 정의되어있기 때문에 python 실행기에서부터 시작하면
 
-`Programs/python.c:main()`
--> `Modules/main.c:Py_BytesMain()`
--> `Modules/main.c:pymain_main()`
--> `Modules/main.c:pymain_init()`
+`Programs/python.c:main()`<br>
+-> `Modules/main.c:Py_BytesMain()`<br>
+-> `Modules/main.c:pymain_main()`<br>
+-> `Modules/main.c:pymain_init()`<br>
 
 순서로 코드가 실행되어 매개변수를 분석하고 실행환경을 준비한다.
 
@@ -39,25 +39,25 @@ Python2는 한동안 Linux 배포판에 기본으로 포함되어있었을 정�
 
 이때 `pymain_init` 함수에서는 python3의 인터프리터를 위한 환경설정을 불러와서 실행 환경을 초기화하는 bootstraping 과정을 수행한다.
 
-`Modules/main.c:pymain_init()`
--> `Python/pylifecycle.c:Py_InitializeFromConfig()`
--> `Python/pylifecycle.c:_PyRuntime_Initialize`
+`Modules/main.c:pymain_init()`<br>
+-> `Python/pylifecycle.c:Py_InitializeFromConfig()`<br>
+-> `Python/pylifecycle.c:_PyRuntime_Initialize`<br>
 
 를 실행하면서 초기화 상태를 확인하고,
 
-`Python/pylifecycle.c:Py_InitializeFromConfig()`
--> `Python/pylifecycle.c:pyinit_core()`
--> `Python/pylifecycle.c:pyinit_config()`
--> `Python/pylifecycle.c:pycore_init_runtime()`
--> `Python/import.c:_PyImport_INIT()`
--> `Python/import.c:init_builtin_modules_table()`
+`Python/pylifecycle.c:Py_InitializeFromConfig()`<br>
+-> `Python/pylifecycle.c:pyinit_core()`<br>
+-> `Python/pylifecycle.c:pyinit_config()`<br>
+-> `Python/pylifecycle.c:pycore_init_runtime()`<br>
+-> `Python/import.c:_PyImport_INIT()`<br>
+-> `Python/import.c:init_builtin_modules_table()`<br>
 
 단계로 함수를 호출하면서 `pycore_init_runtime` 함수 내부에서 Runtime 환경이 현재 인터프리터가 실행중인지, 아니면 실행 가능한 상태인지 확인한 후 전역적으로 `import` 명령어를 수행할 수 있도록 메모리 상태를 초기화한다. 이 단계에서 `pycore_init_runtime` 함수는 런타임 환경을 구성하고 인터프리터가 생성 가능한 상태임을 시스템에 알린다.
 
 이제 다시 `pyinit_config` 함수로 돌아가야 한다.
 
-`Python/pylifecycle.c:pyinit_config()`
--> `Python/pylifecycle.c:pycore_create_interpreter()`
+`Python/pylifecycle.c:pyinit_config()`<br>
+-> `Python/pylifecycle.c:pycore_create_interpreter()`<br>
 
 위의 `pycore_int_runtime` 바로 뒤에 `pycore_create_interpreter` 함수가 실행되는데, 이 함수의 내부에서 인터프리터 객체와 인터프리터 내부의 Thread의 상태를 가리키는 `ThreadState` 객체가 생성된다. `GIL(Global Interpreter Lock)` 또한 이 함수의 마지막에 Thread생성 이후에 초기화된다.
 
@@ -69,18 +69,18 @@ Python2는 한동안 Linux 배포판에 기본으로 포함되어있었을 정�
 
 위에서 인터프리터를 생성한 뒤 Python 실행기는 진입 파일을 모듈로 로드한 뒤 __main__ 모듈로 참조하도록 환경을 구축한다. 인터프리터 초기화를 마친 뒤에 실행되기 때문에 `pymain_main` 함수로 돌아와야 한다.
 
-`Modules/main.c:pymain_main()`
--> `Modules/main.c:Py_RunMain()`
--> `Modules/main.c:pymain_run_python()`
+`Modules/main.c:pymain_main()`<br>
+-> `Modules/main.c:Py_RunMain()`<br>
+-> `Modules/main.c:pymain_run_python()`<br>
 
 이 프로세스에서 대기상태인 인터프리터 객체를 불러온 뒤 config 객체에서 실행 대상을 확인한다. `-c` 스위치로 인라인 코드를 입력 받은 경우, `-m` 스위치로 모듈, 또는 모듈 경로를 입력 받은 경우, 파일 이름을 직접 입력받은 경우, 그리고 어떤 입력도 없는 경우, REPL로 진입하는 경우가 있다. 지금은 ".py" 파일을 입력받은 경우로 추적 중이기 때문에 파일 입력 분기로 진행한다.
 
-`Modules/main.c:pymain_run_python()`
--> `Modules/main.c:pymain_run_file()`
--> `Modules/main.c:pymain_run_file_obj()`
--> `Python/pythonrun.c:_PyRun_AnyFileObject()`
--> `Python/pythonrun.c:_PyRun_SimpleFileObject()`
--> `Python/pythonrun.c:set_main_loader()`
+`Modules/main.c:pymain_run_python()`<br>
+-> `Modules/main.c:pymain_run_file()`<br>
+-> `Modules/main.c:pymain_run_file_obj()`<br>
+-> `Python/pythonrun.c:_PyRun_AnyFileObject()`<br>
+-> `Python/pythonrun.c:_PyRun_SimpleFileObject()`<br>
+-> `Python/pythonrun.c:set_main_loader()`<br>
 
 이러한 순서로 함수가 호출되면서 파일 객체를 분석해서 모듈을 불러온다. `_PyRun_SimpleFileObject`의 내부에는 `pyc` 파일이 존재하는지 체크하는 함수가 있어서 직후에 모듈 로더를 생성하는 단계에서 `SourceFileLoader`, 또는 `SourcelessFileLoader` 두가지 로더중 하나로 분기하게 된다. 어느쪽으로 가던지 코드는 `set_main_loader` 함수에 도달하게 되어있다.
 
@@ -117,13 +117,13 @@ loader = SourcelessFileLoader("__main__", filename)
 
 이제 분기에 따라 다르지만 `set_main_loader` 함수 직후에 나오는 `run_pyc_file` 또는 `pyrun_file` 함수가 모듈의 실행 절차를 수행한다.
 
-`Python/pythonrun.c:_PyRun_SimpleFileObject()`
--> `Python/pythonrun.c:run_pyc_file()`
+`Python/pythonrun.c:_PyRun_SimpleFileObject()`<br>
+-> `Python/pythonrun.c:run_pyc_file()`<br>
 
 여기에서는 기존에 컴파일되어있던 캐시파일인 `.pyc`를 읽고 내부에서 `run_eval_code_obj` 함수를 통해 사용자가 실행을 요청한 파일을 모듈로써 인터프리터 위에서 동작을 실행한다.
 
-`Python/pythonrun.c:_PyRun_SimpleFileObject()`
--> `Python/pythonrun.c:pyrun_file()`
+`Python/pythonrun.c:_PyRun_SimpleFileObject()`<br>
+-> `Python/pythonrun.c:pyrun_file()`<br>
 
 이 안에서는 파일을 모듈로 메모리에 로드하기 위한 절차로 메모리 영역을 확보하고, 파일을 AST(Abstract Syntax Tree) Parser를 이용해서 코드를 컴파일 한 후 코드 객체를 인터프리터 쓰레드에서 실행하는 것으로 유저의 코드로 완전히 진입하게 된다.
 
