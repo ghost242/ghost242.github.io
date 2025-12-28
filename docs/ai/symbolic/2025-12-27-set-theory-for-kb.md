@@ -23,16 +23,25 @@ tag: ["Knowledge Base", "Set Theory", "Logic"]
 
 이걸 집합으로 표현하면 이러하다.
 
-> 1. $Socrates \in Human$
-> 2. $Human \subseteq Mortal$
-> 3. Then, $Socrates \in Mortal$
+$$
+\begin{array}{ll}
+    &&Socrates \in Human  &\text{(1)}\\
+    &&Human \subseteq Mortal &\text{(2)}\\
+    \cr
+    &\therefore &Socrates \in Mortal &\text{(3)}\\
+\end{array}
+$$
 
 위 수식들은 "`Socrates`는 `Human`의 속해있고, `Human`은 `Mortal`의 부분집합이기 때문에, `Socrates`는 Mortal에 속한다", 라는 논리를 표현한다. 이렇게 표현했을 때 집합의 요소들과 `Knowledge Base`의 요소가 어떻게 연관되는지 알 수 있다.
 
-> * Element ↔ Socrates
-> * Fact ↔ $Socrates \in Human$
-> * Rule ↔ $Human \subseteq Mortal$
-> * Query ↔ $Socrates \in Mortal$
+$$
+\begin{array}{ll}
+    \text{Element }&\leftrightarrow &Socrates\\
+    \text{Fact }&\leftrightarrow &Socrates \in Human\\
+    \text{Rule }&\leftrightarrow &Human \subseteq Mortal\\
+    \text{Query }&\leftrightarrow &Socrates \in Mortal\\
+\end{array}
+$$
 
 여기서 Query는 3단논법에서는 결론에 해당하지만, `Inference Engine`이 입력받는 질의로도 이해할 수 있다. 만약 $Socrates \in Mortal$ 가 Query가 아니고 이미 `Knowledge Base`에 있는 정보라면, `Fact`로 분류할 수도 있다.
 
@@ -110,13 +119,17 @@ graph
     end
 ```
 
-> 1. $Atom = \{Hydrogen, Neon\}$
-> 2. $God = \{Athena\}$
-> 3. $Insect = \{Fly, Ladybug\}$
-> 4. $Human = \{Socrates\}$
-> 5. $Immortal \supseteq Atom \cup God \text{ and } \emptyset \equiv Atom \cap God$
-> 6. $Mortal \supseteq Insect \cup Human \text{ and } \emptyset \equiv Insect \cap Human$
-> 7. $U \supseteq Immortal \cup Mortal \text{ and } \emptyset \equiv Immortal \cap Mortal$
+$$
+\begin{array}{llllll}
+    &Atom = \{Hydrogen, Neon\} &&&&\text{(1)}\\
+    &God = \{Athena\} &&&&\text{(2)}\\
+    &Insect = \{Fly, Ladybug\} &&&&\text{(3)}\\
+    &Human = \{Socrates\} &&&&\text{(4)}\\
+    &Immortal \supseteq Atom \cup God &\text{ and } \emptyset &\equiv &Atom \cap God &\text{(5)}\\
+    &Mortal \supseteq Insect \cup Human &\text{ and } \emptyset &\equiv &Insect \cap Human &\text{(6)}\\
+    &U \supseteq Immortal \cup Mortal &\text{ and } \emptyset &\equiv &Immortal \cap Mortal &\text{(7)}\\
+\end{array}
+$$
 
 이 수식에서 1에서 4까지 집합을 정의하고, 5에서 7까지는 집합간의 포함관계를 정의한 내용이다. 위에 정의되어있는 집합들에 대한 포함관계가 중요한데, Immortal과 Mortal, Atom과 God, Insect와 Human은 각각이 서로소인 관계라는 것이다. 물론 현실세계의 모델을 `Knowledge Base`에 `Fact`와 `Rule`로 구축한다면 이보다는 훨씬 복잡한 집합 구조가 필요할 것이다.
 
@@ -128,15 +141,26 @@ graph
 
 또한 새로운 `Fact`가 입력될 때 기존의 논리 구조에 대해서도 적합한지 검증할 때도 유용하게 활용할 수 있다. 위의 `Knowledge Base`에 새로운 `Fact`인 "Socrates는 Immortal이다"를 입력한다고 가정해보면, 수학적 모델을 배제한 상태로 논리적으로 모순인지 알기위해서는 일일이 `Fact`와 연결된 `Rule`을 대조하면서 찾아내야 한다. 하지만 이걸 집합으로 표현해보면 간단히 모순이 발생하고 있음을 알 수 있다.
 
-$\text{If }Socrates \in Immortal,$
+$$
+\text{If }Socrates \in Immortal,
+$$
 
 위의 명제를 참으로 가정하고 정의되어있는 `Knowledge Base`를 전개해보면 아래와 같이 표현된다.
 
-> 1. $U \supseteq Mortal \cup Immortal \text{ and } \emptyset \equiv Mortal \cap Immortal$</br>
-> 2. $Socrates \in Mortal$</br>
-> 3. $\therefore Socrates \in Mortal \text{ and } Socrates \in Immortal$</br>
+$$
+\begin{array}{lllll}
+&&U \supseteq Mortal \cup Immortal &\text{ and } &\emptyset \equiv Mortal \cap Immortal &\text{(1)}\\
+&&Socrates \in Mortal &&&\text{(2)}\\
+\cr
+&\therefore &Socrates \in Mortal &\text{ and } &Socrates \in Immortal &\text{(3)}\\
+\end{array}\\
+$$
 
-1번을 통해 `Mortal`과 `Immortal`의 교집합이 공집합임을 알 수 있고, 2를 통해서 Socrates는 Mortal에 속하는 요소임을 알 수 있다. 그런데 초기 가정인 $Socrates \in Immortal$이 참이기 때문에 결론에서 Socrates는 Mortal에 속하면서 동시에 Immortal에 속하게된다. 이 내용을 수식으로 표현한 것이 3번인데, 이 자체가 모순이기 때문에 이 가정 자체가 거짓이라는 것을 알 수 있다.
+1번을 통해 `Mortal`과 `Immortal`가 서로소임을 알 수 있고, 2를 통해서 Socrates는 Mortal에 속하는 요소임을 알 수 있다. 그런데 초기 가정인,
+
+$$Socrates \in Immortal$$
+
+이 관계를 참으로 가정하였기 때문에 결론에서 Socrates는 Mortal에 속하면서 동시에 Immortal에 속하게된다. 이 내용을 수식으로 표현한 것이 3번인데, 이 자체가 모순이기 때문에 이 가정 자체가 거짓이라는 것을 알 수 있다.
 
 다시 말해, `Knowledge Base`는 논리적 모순이 없음을 증명하고, 새로운 `Fact`를 검증할 때 집합을 통해 정의한 모델을 활용하면 빠르고 명확하게 결과를 얻어낼 수 있다.
 
