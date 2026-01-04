@@ -10,19 +10,20 @@ nav_order: 0
 
 ## Interest items
 
-* AI
-  * Symbolic AI
+* [AI](./docs/ai)
+  * [Symbolic AI](./docs/ai/symbolic)
   * LLM
   * Agent
   * Vector Embedding
+  * [Utility Tools](./docs/ai/tool)
 
 * Programming language
-  * Python
-  * Haskell
+  * [Python](./docs/python)
+  * [Haskell](./docs/haskell)
 
 * Infrastructure
-  * Network Programming
-  * Database
+  * [Network Programming](./docs/networks)
+  * [Database](./docs/database)
 
 * Software engineering
   * Designing Architecture
