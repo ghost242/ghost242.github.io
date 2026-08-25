@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 64 64"
+     width="64" height="64"
+     fill="none"
+     stroke-width="2.0"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     aria-label="Neural network"
+     role="img">
+     
+  <!-- BEGIN: Brain background (🧠-like) -->
+<!-- Brain background (🧠 emoji-style side view) -->
+<g opacity="0.30">
+  <!-- Outer brain silhouette -->
+  <path d="
+    M16 18
+    C14 14 18 10 24 10
+    C30 10 34 14 36 16
+    C40 14 46 16 48 22
+    C52 24 54 28 52 32
+    C54 36 52 40 48 42
+    C46 48 40 50 36 48
+    C34 50 30 52 26 52
+    C20 52 16 48 16 44
+    C12 42 10 38 12 34
+    C10 30 12 24 16 22
+    Z
+  "
+  fill="#7CB342"
+  stroke="#558B2F"
+  stroke-width="3"
+  stroke-linejoin="round"/>
+
+  <!-- Brain folds (emoji-like flowing curves) -->
+  <path d="M22 18C26 16 30 18 32 20"
+        stroke="#558B2F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M20 24C24 22 28 24 30 26"
+        stroke="#558B2F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M22 30C26 28 30 30 32 32"
+        stroke="#558B2F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M24 36C28 34 32 36 34 38"
+        stroke="#558B2F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M26 42C30 40 34 42 36 44"
+        stroke="#558B2F" stroke-width="2" fill="none" stroke-linecap="round"/>
+</g>
+
+  <!-- END: Brain background (🧠-like) -->
+
+  <!-- Edges: Input -> Hidden (light blue) -->
+  <g stroke="#4f4f4f">
+    <path d="M12.2 12L29.8 18"/>
+    <path d="M12.2 22L29.8 18"/>
+    <path d="M12.2 32L29.8 18"/>
+    <path d="M12.2 32L29.8 32"/>
+    <path d="M12.2 32L29.8 46"/>
+    <path d="M12.2 42L29.8 46"/>
+    <path d="M12.2 52L29.8 46"/>
+  </g>
+
+  <!-- Edges: Hidden -> Output (blue) -->
+  <g stroke="#4f4f4f">
+    <path d="M34.2 18L51.8 14"/>
+    <path d="M34.2 32L51.8 14"/>
+    <path d="M34.2 32L51.8 26"/>
+    <path d="M34.2 32L51.8 38"/>
+    <path d="M34.2 46L51.8 38"/>
+    <path d="M34.2 46L51.8 50"/>
+  </g>
+
+  <!-- Layer 1: Input (light blue) -->
+  <g stroke="#000000" fill="#ffffff">
+    <circle cx="10" cy="12" r="2.2"/>
+    <circle cx="10" cy="22" r="2.2"/>
+    <circle cx="10" cy="32" r="2.2"/>
+    <circle cx="10" cy="42" r="2.2"/>
+    <circle cx="10" cy="52" r="2.2"/>
+  </g>
+
+  <!-- Layer 2: Hidden (blue) -->
+  <g stroke="#000000" fill="#ffffff">
+    <circle cx="32" cy="18" r="2.2"/>
+    <circle cx="32" cy="32" r="2.2"/>
+    <circle cx="32" cy="46" r="2.2"/>
+  </g>
+
+  <!-- Layer 3: Output (navy) -->
+  <g stroke="#000000" fill="#ffffff">
+    <circle cx="54" cy="14" r="2.2"/>
+    <circle cx="54" cy="26" r="2.2"/>
+    <circle cx="54" cy="38" r="2.2"/>
+    <circle cx="54" cy="50" r="2.2"/>
+  </g>
+
+</svg>

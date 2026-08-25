@@ -25,8 +25,8 @@ tag: ["Knowledge Base", "Set Theory", "Logic"]
 
 $$
 \begin{array}{ll}
-    &&Socrates \in Human  &\text{(1)}\\
-    &&Human \subseteq Mortal &\text{(2)}\\
+    &&Human \subseteq Mortal &\text{(1)}\\
+    &&Socrates \in Human  &\text{(2)}\\
     \cr
     &\therefore &Socrates \in Mortal &\text{(3)}\\
 \end{array}
